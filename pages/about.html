@@ -26,6 +26,7 @@
                 radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
             background-attachment: fixed;
+            min-height: 100vh;
         }
 
         .navbar-custom {
@@ -52,6 +53,11 @@
             transition: all 0.3s ease;
         }
 
+        .card-custom:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
         .text-gradient {
             background: linear-gradient(135deg, #818cf8, #22d3ee);
             -webkit-background-clip: text;
@@ -75,6 +81,24 @@
             padding: 4px 10px;
             font-size: 0.8rem;
             display: inline-block;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 10px 24px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.45);
+            color: #fff;
         }
     </style>
 </head>
@@ -103,33 +127,42 @@
         </div>
     </nav>
 
-    <!-- Header -->
+    <!-- Main Content -->
     <section class="py-5">
         <div class="container">
-            <div class="mb-4">
-                <span class="badge-custom mb-2 d-inline-block">Background & Profile</span>
+            <div class="mb-5">
+                <span class="badge-custom mb-2 d-inline-block">Profile & Background</span>
                 <h1 class="fw-bold text-white">About Me</h1>
-                <p class="text-secondary col-lg-8">Securing maritime operational technology, vessel navigation infrastructures, and industrial control systems against evolving cyber threats.</p>
+                <p class="text-secondary col-lg-8" style="color: var(--text-muted) !important;">
+                    Specialized in Maritime Operational Technology (OT) Cybersecurity, critical transportation infrastructure defense, and industrial control systems.
+                </p>
             </div>
 
             <div class="row g-4">
-                <!-- Bio -->
+                <!-- Biography -->
                 <div class="col-lg-7">
                     <div class="card-custom h-100">
-                        <h3 class="h4 text-white fw-bold mb-3">Maritime OT Cybersecurity Specialist</h3>
-                        <p class="text-secondary" style="color: var(--text-muted) !important;">
-                            I specialize at the intersection of cybersecurity, maritime operations, and embedded hardware security. With a focused background in critical infrastructure defense, my research and practical work center on protecting vessel bridge command systems, NMEA telemetry feeds, and port OT environments.
+                        <h3 class="h4 text-white fw-bold mb-3">Maritime & OT Cybersecurity Focus</h3>
+                        <p class="text-secondary mb-3" style="color: var(--text-muted) !important;">
+                            My focus centers on securing maritime infrastructure, vessel navigation command bridges, and industrial control environments against modern threat vectors.
                         </p>
-                        <p class="text-secondary" style="color: var(--text-muted) !important;">
-                            My technical toolkit combines regulatory expertise (IMO Resolution MSC.428(98), IACS UR E26/E27) with hands-on security assessment capabilities, including digital forensics, Volatility memory analysis, and RF hardware testing.
+                        <p class="text-secondary mb-3" style="color: var(--text-muted) !important;">
+                            Combining international maritime regulatory compliance frameworks—such as IMO Resolution MSC.428(98) and IACS UR E26/E27—with hands-on security assessment skills including NMEA protocol manipulation, digital forensics, and hardware wireless testing.
                         </p>
+                        <p class="text-secondary mb-4" style="color: var(--text-muted) !important;">
+                            Currently pursuing advanced academic specialization in Cybersecurity & IoT while researching bridge simulator security vectors and vessel OT resilience.
+                        </p>
+                        <div>
+                            <a href="journey.html" class="btn btn-glow me-3">View Full Journey</a>
+                            <a href="playbook.html" class="text-gradient fw-semibold text-decoration-none">Explore Marsec Playbooks &rarr;</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Core Specs -->
+                <!-- Technical Stack & Highlights -->
                 <div class="col-lg-5">
                     <div class="card-custom h-100">
-                        <h3 class="h5 text-white fw-bold mb-3">Technical Stack</h3>
+                        <h3 class="h5 text-white fw-bold mb-3">Core Toolset & Domain Stack</h3>
                         <div class="d-flex flex-wrap gap-2 mb-4">
                             <span class="tag-tech">Bridge Command</span>
                             <span class="tag-tech">OpenCPN</span>
@@ -139,10 +172,19 @@
                             <span class="tag-tech">Volatility Framework</span>
                             <span class="tag-tech">SentinelOne EDR</span>
                             <span class="tag-tech">Kali Linux</span>
-                            <span class="tag-tech">IMO 2021 / IACS UR E26</span>
+                            <span class="tag-tech">IMO MSC.428(98)</span>
+                            <span class="tag-tech">IACS UR E26 / E27</span>
                         </div>
-                        <h3 class="h5 text-white fw-bold mb-2">Location & Focus</h3>
-                        <p class="small text-secondary mb-0">Based in France | Specialized in Maritime OT & Defense Security</p>
+
+                        <hr style="border-color: rgba(255, 255, 255, 0.1);">
+
+                        <h3 class="h5 text-white fw-bold my-3">Domain Focus Areas</h3>
+                        <ul class="list-unstyled text-secondary small d-flex flex-column gap-2 mb-0" style="color: var(--text-muted) !important;">
+                            <li>&#10003; Shipboard OT / ICS Network Segmentation</li>
+                            <li>&#10003; ECDIS Navigation & Position Feed Integrity</li>
+                            <li>&#10003; Volatile Memory Forensics & DFIR</li>
+                            <li>&#10003; Sub-GHz RF Signal Assessment</li>
+                        </ul>
                     </div>
                 </div>
             </div>
