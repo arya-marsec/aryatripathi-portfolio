@@ -1,166 +1,216 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arya Tripathi | Maritime & OT Security Command</title>
+    <title>Arya Tripathi | Maritime & OT Security Specialist</title>
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-ocean: #090e14;
-            --panel-slate: #111a24;
-            --radar-cyan: #00f2fe;
-            --alert-amber: #ffb302;
-            --text-muted: #8a99ad;
+            --bg-dark: #0b0d19;
+            --card-bg: #13172b;
+            --accent-purple: #6366f1;
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
+
         body {
-            background-color: var(--bg-ocean);
-            color: #e6f1ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
         }
-        .bridge-header {
-            background: rgba(17, 26, 36, 0.85);
-            border-bottom: 2px solid var(--radar-cyan);
-            backdrop-filter: blur(10px);
+
+        .navbar-custom {
+            background: rgba(19, 23, 43, 0.75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .console-card {
-            background-color: var(--panel-slate);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            border-radius: 6px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+        .nav-link {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 10px 24px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.45);
+            color: #fff;
+        }
+
+        .btn-outline-custom {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 10px 24px;
+            text-decoration: none;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card-custom {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
             transition: all 0.3s ease;
         }
-        .console-card:hover {
-            border-color: var(--radar-cyan);
-            transform: translateY(-2px);
+
+        .card-custom:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        .status-dot {
-            height: 10px;
-            width: 10px;
-            background-color: var(--radar-cyan);
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 8px var(--radar-cyan);
+
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .tag-tech {
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--radar-cyan);
-            border: 1px solid rgba(0, 242, 254, 0.3);
+
+        .badge-custom {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            padding: 6px 14px;
             font-size: 0.8rem;
+        }
+
+        .hero-img-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
 <body>
 
-    <!-- Telemetry Bar -->
-    <div class="bridge-header sticky-top py-3 px-4">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-3">
-                <span class="status-dot"></span>
-                <span class="fw-bold tracking-wide text-uppercase" style="color: var(--radar-cyan);">Arya Tripathi</span>
-                <span class="text-secondary d-none d-md-inline">| Maritime OT & Systems Defense</span>
-            </div>
-            <div>
-                <a href="#contact" class="btn btn-sm btn-outline-info me-2">Initiate Contact</a>
-                <a href="https://linkedin.com/in/arya-tripathi" target="_blank" class="btn btn-sm btn-info text-dark fw-bold">LinkedIn</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2" href="index.html">
+                <span style="color: var(--accent-cyan);">&#128737;</span> Arya Tripathi
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 me-4">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/journey.html">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/certifications.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-info fw-semibold" href="pages/playbook.html">Marsec Playbooks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Main Dashboard Body -->
-    <div class="container-fluid py-4 px-4">
-        
-        <!-- Hero Operational Overview -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="console-card p-4">
-                    <span class="badge bg-warning text-dark mb-2">SYSTEM PROFILE</span>
-                    <h1 class="h2 text-white">Cyber Resilience & Operational Technology Specialist</h1>
-                    <p class="text-secondary col-lg-9">
-                        Specializing in maritime risk frameworks, bridge navigation system attack vectors, and industrial hardware security. Engineering robust defense architectures for critical maritime infrastructure.
+    <!-- Hero Section -->
+    <section class="py-5 my-4">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge-custom mb-3 d-inline-block">Maritime & OT Cybersecurity</span>
+                    <h1 class="display-4 fw-bold lh-sm mb-3">
+                        Hello, I'm <br>
+                        <span class="text-gradient">Arya Tripathi</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4 col-lg-10" style="color: var(--text-muted) !important;">
+                        Specialized in Maritime Cyber Resilience, Bridge Command system vectors, and Industrial Hardware Security. Engineering robust defense frameworks for critical transportation networks.
                     </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3-Column Command Layout -->
-        <div class="row g-4">
-            
-            <!-- Panel 1: Regulatory & Domain Compliance -->
-            <div class="col-lg-4">
-                <div class="console-card p-4 h-100">
-                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">01 // Maritime Regulatory Matrix</h3>
-                    
-                    <div class="mt-3">
-                        <h5 class="h6 text-info">IMO Resolution MSC.428(98)</h5>
-                        <p class="small text-secondary">Cyber risk management integration across Safety Management Systems (SMS).</p>
-                    </div>
-
-                    <div class="mt-3">
-                        <h5 class="h6 text-info">IACS UR E26 & E27</h5>
-                        <p class="small text-secondary">Implementation of cyber resilience standards for total vessel networks and onboard integrated systems.</p>
-                    </div>
-
-                    <div class="mt-3">
-                        <h5 class="h6 text-info">Critical Infrastructure / OT</h5>
-                        <p class="small text-secondary">Aviation & maritime sector compliance, SCADA/ICS segmentation, and protocol security.</p>
+                    <div class="d-flex gap-3">
+                        <a href="pages/playbook.html" class="btn btn-glow">Marsec Playbooks</a>
+                        <a href="pages/journey.html" class="btn btn-outline-custom">View My Journey</a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Panel 2: Active Lab & Hardware Research -->
-            <div class="col-lg-4">
-                <div class="console-card p-4 h-100">
-                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">02 // Bridge & Hardware Vectors</h3>
-                    
-                    <div class="mb-3">
-                        <h5 class="h6 text-white">Bridge Simulator Attack Analysis</h5>
-                        <p class="small text-secondary">Testing vector resistance across Bridge Command, OpenCPN, and NMEA 0183/2000 telemetry streams.</p>
-                        <span class="badge tag-tech">GNSS Spoofing</span>
-                        <span class="badge tag-tech">AIS Degradation</span>
-                    </div>
-
-                    <div class="mb-3">
-                        <h5 class="h6 text-white">RF & Embedded Penetration Testing</h5>
-                        <p class="small text-secondary">Hardware assessment targeting marine IoT controllers, sub-GHz communications, and serial bridge connections.</p>
-                        <span class="badge tag-tech">Flipper Zero</span>
-                        <span class="badge tag-tech">Wi-Fi Marauder</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 3: DFIR & Threat Operations -->
-            <div class="col-lg-4">
-                <div class="console-card p-4 h-100">
-                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">03 // DFIR & Threat Mitigation</h3>
-                    
-                    <div class="mb-3">
-                        <h5 class="h6 text-white">Incident Response & Memory Forensics</h5>
-                        <p class="small text-secondary">Volatile memory collection and artifact analysis across industrial control environments using the Volatility Framework.</p>
-                    </div>
-
-                    <div class="mb-3">
-                        <h5 class="h6 text-white">Endpoint & SOC Operations</h5>
-                        <p class="small text-secondary">Telemetry monitoring, policy enforcement, and endpoint detection using SentinelOne EDR platforms.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Terminal-Style Direct Contact -->
-        <div id="contact" class="row mt-4">
-            <div class="col-12">
-                <div class="console-card p-4 text-center">
-                    <h3 class="h5 text-info">// Establish Secure Connection</h3>
-                    <p class="text-secondary small">Direct communication channels for research collaboration and OT security inquiries.</p>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                        <a href="mailto:contact.aryatripathi@gmail.com" class="btn btn-outline-info">Email Gateway</a>
-                        <a href="https://wa.me/" class="btn btn-outline-warning" target="_blank">Direct Messaging</a>
+                <div class="col-lg-5">
+                    <div class="hero-img-container p-4" style="background: var(--card-bg);">
+                        <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-3 mb-3">
+                            <span class="small text-secondary">// SYSTEM STATUS</span>
+                            <span class="badge bg-success">ACTIVE DEFENSE</span>
+                        </div>
+                        <h5 class="fw-bold text-white mb-3">Core Pillars</h5>
+                        <ul class="list-unstyled text-secondary small d-flex flex-column gap-2 mb-0">
+                            <li>&#10003; IMO Resolution MSC.428(98) Integration</li>
+                            <li>&#10003; IACS UR E26 / E27 Cyber Resilience</li>
+                            <li>&#10003; Bridge Simulator & NMEA Telemetry Vectors</li>
+                            <li>&#10003; DFIR & Volatility Memory Forensics</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Overview Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="mb-4">
+                <span class="badge-custom mb-2">Explore Portfolio</span>
+                <h2 class="fw-bold">Key Modules</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-custom h-100">
+                        <h4 class="h5 fw-bold text-white mb-2">Marsec Playbooks</h4>
+                        <p class="small text-secondary mb-3">Tactical reference sheets covering NMEA protocol security, GNSS spoofing analysis, and hardware vector assessments.</p>
+                        <a href="pages/playbook.html" class="text-gradient fw-semibold text-decoration-none small">Access Playbooks &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-custom h-100">
+                        <h4 class="h5 fw-bold text-white mb-2">Academic & Career Journey</h4>
+                        <p class="small text-secondary mb-3">Details on my ENSM maritime cybersecurity internship and ESILV Master's specialization in IoT & OT defense.</p>
+                        <a href="pages/journey.html" class="text-gradient fw-semibold text-decoration-none small">View Journey &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-custom h-100">
+                        <h4 class="h5 fw-bold text-white mb-2">Technical Services</h4>
+                        <p class="small text-secondary mb-3">Consultation capabilities in IMO/IACS compliance auditing, OT risk modeling, and embedded hardware testing.</p>
+                        <a href="pages/services.html" class="text-gradient fw-semibold text-decoration-none small">Explore Services &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

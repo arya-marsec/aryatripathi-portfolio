@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Arya Tripathi</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0d19;
+            --card-bg: #13172b;
+            --accent-purple: #6366f1;
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .navbar-custom {
+            background: rgba(19, 23, 43, 0.75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+        .card-custom {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-custom {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+
+        .tag-tech {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2" href="../index.html">
+                <span style="color: var(--accent-cyan);">&#128737;</span> Arya Tripathi
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 me-4">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="journey.html">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-info fw-semibold" href="playbook.html">Marsec Playbooks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="py-5">
+        <div class="container">
+            <div class="mb-4">
+                <span class="badge-custom mb-2 d-inline-block">Background & Profile</span>
+                <h1 class="fw-bold text-white">About Me</h1>
+                <p class="text-secondary col-lg-8">Securing maritime operational technology, vessel navigation infrastructures, and industrial control systems against evolving cyber threats.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Bio -->
+                <div class="col-lg-7">
+                    <div class="card-custom h-100">
+                        <h3 class="h4 text-white fw-bold mb-3">Maritime OT Cybersecurity Specialist</h3>
+                        <p class="text-secondary" style="color: var(--text-muted) !important;">
+                            I specialize at the intersection of cybersecurity, maritime operations, and embedded hardware security. With a focused background in critical infrastructure defense, my research and practical work center on protecting vessel bridge command systems, NMEA telemetry feeds, and port OT environments.
+                        </p>
+                        <p class="text-secondary" style="color: var(--text-muted) !important;">
+                            My technical toolkit combines regulatory expertise (IMO Resolution MSC.428(98), IACS UR E26/E27) with hands-on security assessment capabilities, including digital forensics, Volatility memory analysis, and RF hardware testing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Specs -->
+                <div class="col-lg-5">
+                    <div class="card-custom h-100">
+                        <h3 class="h5 text-white fw-bold mb-3">Technical Stack</h3>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="tag-tech">Bridge Command</span>
+                            <span class="tag-tech">OpenCPN</span>
+                            <span class="tag-tech">NMEA 0183 / 2000</span>
+                            <span class="tag-tech">Flipper Zero</span>
+                            <span class="tag-tech">Wi-Fi Marauder</span>
+                            <span class="tag-tech">Volatility Framework</span>
+                            <span class="tag-tech">SentinelOne EDR</span>
+                            <span class="tag-tech">Kali Linux</span>
+                            <span class="tag-tech">IMO 2021 / IACS UR E26</span>
+                        </div>
+                        <h3 class="h5 text-white fw-bold mb-2">Location & Focus</h3>
+                        <p class="small text-secondary mb-0">Based in France | Specialized in Maritime OT & Defense Security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
