@@ -71,6 +71,7 @@
             border-radius: 20px;
             padding: 4px 12px;
             font-size: 0.78rem;
+            white-space: nowrap;
         }
 
         .tag-tech {
@@ -81,12 +82,6 @@
             padding: 4px 8px;
             font-size: 0.75rem;
             display: inline-block;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
         }
 
         .timeline-border {
@@ -124,63 +119,35 @@
     <!-- Main Content -->
     <section class="py-5">
         <div class="container">
-            <div class="mb-4 text-center text-lg-start">
-                <span class="badge-custom mb-2 d-inline-block">Parallel Track Overview</span>
+            <div class="mb-5 text-center text-lg-start">
+                <span class="badge-custom mb-2 d-inline-block">Parallel Experience & Education</span>
                 <h1 class="fw-bold text-white">My Professional Journey</h1>
                 <p class="text-secondary col-lg-8" style="color: var(--text-muted) !important;">
                     Over 4 years of cybersecurity engineering across Maritime OT, Civil Aviation, and DFIR.
                 </p>
             </div>
 
-            <!-- Top Highlights Bar -->
-            <div class="row g-3 mb-5">
-                <div class="col-md-3">
-                    <div class="card-custom text-center p-3">
-                        <div class="stat-number">4+ Yrs</div>
-                        <div class="fw-semibold text-white small mt-1">Cyber Experience</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-custom text-center p-3">
-                        <div class="stat-number">M2</div>
-                        <div class="fw-semibold text-white small mt-1">ESILV Paris</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-custom text-center p-3">
-                        <div class="stat-number">ENSM</div>
-                        <div class="fw-semibold text-white small mt-1">Maritime Cybersecurity Intern</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card-custom text-center p-3">
-                        <div class="stat-number">Govt</div>
-                        <div class="fw-semibold text-white small mt-1">Aviation Threat Cell</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Parallel Split Columns -->
+            <!-- Balanced 50/50 Split Grid -->
             <div class="row g-4">
                 
                 <!-- Left Column: Work Experience -->
-                <div class="col-lg-7 d-flex flex-column gap-4">
-                    <h2 class="h4 text-white fw-bold mb-0">Work Experience</h2>
+                <div class="col-lg-6 d-flex flex-column gap-4">
+                    <h2 class="h4 text-white fw-bold mb-1">Work Experience</h2>
 
-                    <!-- Role 1: ENSM Maritime Cybersecurity Intern -->
+                    <!-- Role 1 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">Maritime Cybersecurity Intern</h3>
-                            <span class="badge-custom">Apr 2026 – Aug 2026</span>
+                            <span class="badge-custom text-nowrap">Apr 2026 – Aug 2026</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-3">École Nationale Supérieure Maritime (ENSM) &bull; Nantes, France[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-3">École Nationale Supérieure Maritime (ENSM) &bull; Nantes, France</p>
                         
                         <div class="timeline-border mb-3">
                             <ul class="small text-secondary ps-3 mb-0 d-flex flex-column gap-2" style="color: var(--text-muted) !important;">
-                                <li>Tested navigation attack scenarios (GPS/GNSS jamming/spoofing) on SOMOS simulator[cite: 1].</li>
-                                <li>Designed attack scenarios & maritime-themed phishing for seafarer training[cite: 1].</li>
-                                <li>Assessed hardware attack vectors using Flipper Zero and extended tooling[cite: 1].</li>
-                                <li>Authored research reports aligned with IMO 2021 & IACS UR E26/E27 guidelines[cite: 1].</li>
+                                <li>Tested navigation attack scenarios (GPS/GNSS jamming/spoofing) on SOMOS simulator.</li>
+                                <li>Designed attack scenarios & maritime-themed phishing for seafarer training.</li>
+                                <li>Assessed hardware attack vectors using Flipper Zero and extended tooling.</li>
+                                <li>Authored research reports aligned with IMO 2021 & IACS UR E26/E27 guidelines.</li>
                             </ul>
                         </div>
 
@@ -192,19 +159,19 @@
                         </div>
                     </div>
 
-                    <!-- Role 2: Civil Aviation -->
+                    <!-- Role 2 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">Senior Consultant – Cyber Security Cell</h3>
-                            <span class="badge-custom">Feb 2025 – Sep 2025</span>
+                            <span class="badge-custom text-nowrap">Feb 2025 – Sep 2025</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-3">Ministry of Civil Aviation, Govt. of India &bull; New Delhi[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-3">Ministry of Civil Aviation, Govt. of India &bull; New Delhi</p>
                         
                         <div class="timeline-border mb-3">
                             <ul class="small text-secondary ps-3 mb-0 d-flex flex-column gap-2" style="color: var(--text-muted) !important;">
-                                <li>Conducted cyber threat monitoring for national civil aviation infrastructure[cite: 1].</li>
-                                <li>Produced intelligence reports and actionable threat insights[cite: 1].</li>
-                                <li>Evaluated threat actor tactics across critical transport systems[cite: 1].</li>
+                                <li>Conducted cyber threat monitoring for national civil aviation infrastructure.</li>
+                                <li>Produced intelligence reports and actionable threat insights.</li>
+                                <li>Evaluated threat actor tactics across critical transport systems.</li>
                             </ul>
                         </div>
 
@@ -215,19 +182,19 @@
                         </div>
                     </div>
 
-                    <!-- Role 3: ESF Labs -->
+                    <!-- Role 3 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">Cyber Security Analyst</h3>
-                            <span class="badge-custom">Feb 2021 – Dec 2024</span>
+                            <span class="badge-custom text-nowrap">Feb 2021 – Dec 2024</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-3">ESF Labs Limited &bull; Hyderabad, India[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-3">ESF Labs Limited &bull; Hyderabad, India</p>
                         
                         <div class="timeline-border mb-3">
                             <ul class="small text-secondary ps-3 mb-0 d-flex flex-column gap-2" style="color: var(--text-muted) !important;">
-                                <li>Led DFIR investigations using KAPE, FTK Imager, and Volatility[cite: 1].</li>
-                                <li>Deployed SentinelOne EDR for endpoint threat detection and triage[cite: 1].</li>
-                                <li>Mapped attack behaviors to MITRE ATT&CK framework[cite: 1].</li>
+                                <li>Led DFIR investigations using KAPE, FTK Imager, and Volatility.</li>
+                                <li>Deployed SentinelOne EDR for endpoint threat detection and triage.</li>
+                                <li>Mapped attack behaviors to MITRE ATT&CK framework.</li>
                             </ul>
                         </div>
 
@@ -239,18 +206,18 @@
                         </div>
                     </div>
 
-                    <!-- Role 4: Cipher Security -->
+                    <!-- Role 4 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">Forensic Support Intern</h3>
-                            <span class="badge-custom">Jun 2020 – Sep 2020</span>
+                            <span class="badge-custom text-nowrap">Jun 2020 – Sep 2020</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-3">Cipher Security Managed Services &bull; Remote, India[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-3">Cipher Security Managed Services &bull; Remote, India</p>
                         
                         <div class="timeline-border mb-3">
                             <ul class="small text-secondary ps-3 mb-0 d-flex flex-column gap-1" style="color: var(--text-muted) !important;">
-                                <li>Executed Windows and email forensic investigations and evidence extraction[cite: 1].</li>
-                                <li>Delivered structured forensic investigation reports[cite: 1].</li>
+                                <li>Executed Windows and email forensic investigations and evidence extraction.</li>
+                                <li>Delivered structured forensic investigation reports.</li>
                             </ul>
                         </div>
 
@@ -262,18 +229,18 @@
                 </div>
 
                 <!-- Right Column: Education & Specialization -->
-                <div class="col-lg-5 d-flex flex-column gap-4">
-                    <h2 class="h4 text-white fw-bold mb-0">Education</h2>
+                <div class="col-lg-6 d-flex flex-column gap-4">
+                    <h2 class="h4 text-white fw-bold mb-1">Education</h2>
 
                     <!-- Edu 1 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">Master's in Engineering – Cyber Security & IoT Trust</h3>
-                            <span class="badge-custom ms-2">Sep 2025 – Aug 2027</span>
+                            <span class="badge-custom text-nowrap">Sep 2025 – Aug 2027</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-2">ESILV (Écoles Léonard de Vinci) &bull; Paris, France[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-2">ESILV (Écoles Léonard de Vinci) &bull; Paris, France</p>
                         <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Focusing on IoT security, TPM, secure boot, firmware analysis, and critical infrastructure defense[cite: 1].
+                            Focusing on IoT security, TPM, secure boot, firmware analysis, and critical infrastructure defense.
                         </p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="tag-tech">IoT Security</span>
@@ -283,13 +250,13 @@
 
                     <!-- Edu 2 -->
                     <div class="card-custom">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
                             <h3 class="h5 text-white fw-bold mb-0">PG Diploma in Cyber Security & Cyber Forensics</h3>
-                            <span class="badge-custom ms-2">Jul 2019 – Jul 2020</span>
+                            <span class="badge-custom text-nowrap">Jul 2019 – Jul 2020</span>
                         </div>
-                        <p class="text-gradient fw-semibold small mb-2">Raksha Shakti University &bull; Gujarat, India[cite: 1]</p>
+                        <p class="text-gradient fw-semibold small mb-2">Raksha Shakti University &bull; Gujarat, India</p>
                         <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Specialized in digital evidence extraction, chain of custody protocols, and deep OS forensics[cite: 1].
+                            Specialized in digital evidence extraction, chain of custody protocols, and deep OS forensics.
                         </p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="tag-tech">Digital Forensics</span>
@@ -297,17 +264,18 @@
                         </div>
                     </div>
 
-                    <!-- Core Skills Overview -->
+                    <!-- Core Competencies Alignment Card -->
                     <div class="card-custom">
-                        <h3 class="h6 text-white fw-bold mb-2">Core Technical Specializations</h3>
+                        <h3 class="h5 text-white fw-bold mb-2">Core Domain Competencies</h3>
                         <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Integrating academic IoT foundations with real-world maritime & critical infrastructure security operations[cite: 1].
+                            Cross-functional domain skills bridging academic research with operational threat detection.
                         </p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="tag-tech">Maritime OT Security</span>
                             <span class="tag-tech">DFIR & EDR</span>
                             <span class="tag-tech">Threat Intelligence</span>
                             <span class="tag-tech">Embedded Systems</span>
+                            <span class="tag-tech">NIST / IMO Guidelines</span>
                         </div>
                     </div>
                 </div>
