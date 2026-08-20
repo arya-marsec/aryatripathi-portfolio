@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications | Arya Tripathi</title>
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -46,8 +47,9 @@
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 28px;
+            padding: 24px;
             transition: all 0.3s ease;
+            height: 100%;
         }
 
         .card-custom:hover {
@@ -66,8 +68,8 @@
             color: #a5b4fc;
             border: 1px solid rgba(99, 102, 241, 0.3);
             border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 0.8rem;
+            padding: 4px 12px;
+            font-size: 0.78rem;
         }
 
         .tag-tech {
@@ -75,15 +77,20 @@
             color: var(--accent-cyan);
             border: 1px solid rgba(6, 182, 212, 0.25);
             border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 0.8rem;
+            padding: 4px 8px;
+            font-size: 0.75rem;
             display: inline-block;
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2" href="../index.html">
@@ -106,56 +113,93 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <section class="py-5">
         <div class="container">
-            <div class="mb-5">
-                <span class="badge-custom mb-2 d-inline-block">Qualifications & Compliance</span>
-                <h1 class="fw-bold text-white">Certifications & Standards</h1>
+            <div class="mb-5 text-center text-lg-start">
+                <span class="badge-custom mb-2 d-inline-block">Qualifications & Accreditations</span>
+                <h1 class="fw-bold text-white">Certifications</h1>
                 <p class="text-secondary col-lg-8" style="color: var(--text-muted) !important;">
-                    Specialized training and mastery over key maritime operational technology compliance standards and cyber defense frameworks.
+                    Verified professional certifications covering incident response, industrial control systems, network security, and vulnerability assessment.
                 </p>
             </div>
 
             <div class="row g-4">
-                <!-- Maritime Regulatory Standards Card -->
-                <div class="col-md-6">
-                    <div class="card-custom h-100">
-                        <span class="badge-custom mb-3 d-inline-block">Regulatory Mastery</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Maritime Cyber Standards</h3>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-custom">
+                        <div class="cert-icon">&#128737;</div>
+                        <span class="badge-custom mb-2 d-inline-block">Endpoint & IR</span>
+                        <h3 class="h5 text-white fw-bold mb-2">SIREN</h3>
+                        <p class="text-gradient fw-semibold small mb-2">SentinelOne Incident Response Engineer</p>
                         <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            In-depth knowledge and practical application of global maritime cyber risk management frameworks and shipboard system requirements.
+                            Specialized engineering certification in SentinelOne EDR deployment, threat triage, and incident response orchestration.
                         </p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="tag-tech">IMO MSC.428(98)</span>
-                            <span class="tag-tech">IACS UR E26 / E27</span>
-                            <span class="tag-tech">BIMCO Guidelines</span>
-                            <span class="tag-tech">ISO/IEC 27001</span>
-                        </div>
+                        <span class="tag-tech">EDR & IR</span>
                     </div>
                 </div>
 
-                <!-- Hands-on Technical Capabilities -->
-                <div class="col-md-6">
-                    <div class="card-custom h-100">
-                        <span class="badge-custom mb-3 d-inline-block">Technical Core</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Hands-on Security Skillset</h3>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-custom">
+                        <div class="cert-icon">&#127760;</div>
+                        <span class="badge-custom mb-2 d-inline-block">ICS / OT Security</span>
+                        <h3 class="h5 text-white fw-bold mb-2">210W-06 ICS Cybersecurity Threats</h3>
+                        <p class="text-gradient fw-semibold small mb-2">CISA (Cybersecurity & Infrastructure Security Agency)</p>
                         <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Practical technical experience across industrial control systems, RF spectrum testing, and memory incident analysis.
+                            Industrial control systems threat modeling, OT network defense, and critical infrastructure risk management.
                         </p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="tag-tech">Volatile Forensics (Volatility)</span>
-                            <span class="tag-tech">Embedded Hardware Testing</span>
-                            <span class="tag-tech">NMEA 0183 / 2000 Protocol Analysis</span>
-                            <span class="tag-tech">Industrial Linux & EDR Deployment</span>
-                        </div>
+                        <span class="tag-tech">Industrial Security</span>
                     </div>
                 </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-custom">
+                        <div class="cert-icon">&#128274;</div>
+                        <span class="badge-custom mb-2 d-inline-block">Network Defense</span>
+                        <h3 class="h5 text-white fw-bold mb-2">Certified Network Security Specialist</h3>
+                        <p class="text-gradient fw-semibold small mb-2">CNSS</p>
+                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
+                            Core network defense architecture, protocol security, packet inspection, and perimeter defense configurations.
+                        </p>
+                        <span class="tag-tech">Network Security</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-custom">
+                        <div class="cert-icon">&#128030;</div>
+                        <span class="badge-custom mb-2 d-inline-block">Offensive Security</span>
+                        <h3 class="h5 text-white fw-bold mb-2">Ethical Hacking: Vulnerability Analysis</h3>
+                        <p class="text-gradient fw-semibold small mb-2">Vulnerability Assessment & Assessment</p>
+                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
+                            Hands-on vulnerability identification, exploitation vectors, threat triage, and security auditing methodologies.
+                        </p>
+                        <span class="tag-tech">Vulnerability Analysis</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-custom">
+                        <div class="cert-icon">&#9881;</div>
+                        <span class="badge-custom mb-2 d-inline-block">Agile Framework</span>
+                        <h3 class="h5 text-white fw-bold mb-2">Agile Methodology - Scrum</h3>
+                        <p class="text-gradient fw-semibold small mb-2">Scrum & Operations</p>
+                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
+                            Agile project management frameworks, iterative engineering cycles, sprint planning, and team collaboration.
+                        </p>
+                        <span class="tag-tech">Agile Scrum</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS -->
+    <footer class="py-4 text-center border-top border-secondary border-opacity-10 mt-5">
+        <p class="small text-secondary mb-0" style="color: var(--text-muted) !important;">
+            &copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist
+        </p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
