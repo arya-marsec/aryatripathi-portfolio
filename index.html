@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Tripathi | Maritime & OT Security Command</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-ocean: #090e14;
+            --panel-slate: #111a24;
+            --radar-cyan: #00f2fe;
+            --alert-amber: #ffb302;
+            --text-muted: #8a99ad;
+        }
+        body {
+            background-color: var(--bg-ocean);
+            color: #e6f1ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .bridge-header {
+            background: rgba(17, 26, 36, 0.85);
+            border-bottom: 2px solid var(--radar-cyan);
+            backdrop-filter: blur(10px);
+        }
+        .console-card {
+            background-color: var(--panel-slate);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .console-card:hover {
+            border-color: var(--radar-cyan);
+            transform: translateY(-2px);
+        }
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: var(--radar-cyan);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--radar-cyan);
+        }
+        .tag-tech {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--radar-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Telemetry Bar -->
+    <div class="bridge-header sticky-top py-3 px-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <span class="status-dot"></span>
+                <span class="fw-bold tracking-wide text-uppercase" style="color: var(--radar-cyan);">Arya Tripathi</span>
+                <span class="text-secondary d-none d-md-inline">| Maritime OT & Systems Defense</span>
+            </div>
+            <div>
+                <a href="#contact" class="btn btn-sm btn-outline-info me-2">Initiate Contact</a>
+                <a href="https://linkedin.com/in/arya-tripathi" target="_blank" class="btn btn-sm btn-info text-dark fw-bold">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Body -->
+    <div class="container-fluid py-4 px-4">
+        
+        <!-- Hero Operational Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="console-card p-4">
+                    <span class="badge bg-warning text-dark mb-2">SYSTEM PROFILE</span>
+                    <h1 class="h2 text-white">Cyber Resilience & Operational Technology Specialist</h1>
+                    <p class="text-secondary col-lg-9">
+                        Specializing in maritime risk frameworks, bridge navigation system attack vectors, and industrial hardware security. Engineering robust defense architectures for critical maritime infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-Column Command Layout -->
+        <div class="row g-4">
+            
+            <!-- Panel 1: Regulatory & Domain Compliance -->
+            <div class="col-lg-4">
+                <div class="console-card p-4 h-100">
+                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">01 // Maritime Regulatory Matrix</h3>
+                    
+                    <div class="mt-3">
+                        <h5 class="h6 text-info">IMO Resolution MSC.428(98)</h5>
+                        <p class="small text-secondary">Cyber risk management integration across Safety Management Systems (SMS).</p>
+                    </div>
+
+                    <div class="mt-3">
+                        <h5 class="h6 text-info">IACS UR E26 & E27</h5>
+                        <p class="small text-secondary">Implementation of cyber resilience standards for total vessel networks and onboard integrated systems.</p>
+                    </div>
+
+                    <div class="mt-3">
+                        <h5 class="h6 text-info">Critical Infrastructure / OT</h5>
+                        <p class="small text-secondary">Aviation & maritime sector compliance, SCADA/ICS segmentation, and protocol security.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 2: Active Lab & Hardware Research -->
+            <div class="col-lg-4">
+                <div class="console-card p-4 h-100">
+                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">02 // Bridge & Hardware Vectors</h3>
+                    
+                    <div class="mb-3">
+                        <h5 class="h6 text-white">Bridge Simulator Attack Analysis</h5>
+                        <p class="small text-secondary">Testing vector resistance across Bridge Command, OpenCPN, and NMEA 0183/2000 telemetry streams.</p>
+                        <span class="badge tag-tech">GNSS Spoofing</span>
+                        <span class="badge tag-tech">AIS Degradation</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <h5 class="h6 text-white">RF & Embedded Penetration Testing</h5>
+                        <p class="small text-secondary">Hardware assessment targeting marine IoT controllers, sub-GHz communications, and serial bridge connections.</p>
+                        <span class="badge tag-tech">Flipper Zero</span>
+                        <span class="badge tag-tech">Wi-Fi Marauder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 3: DFIR & Threat Operations -->
+            <div class="col-lg-4">
+                <div class="console-card p-4 h-100">
+                    <h3 class="h5 border-bottom border-secondary pb-2" style="color: var(--alert-amber);">03 // DFIR & Threat Mitigation</h3>
+                    
+                    <div class="mb-3">
+                        <h5 class="h6 text-white">Incident Response & Memory Forensics</h5>
+                        <p class="small text-secondary">Volatile memory collection and artifact analysis across industrial control environments using the Volatility Framework.</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h5 class="h6 text-white">Endpoint & SOC Operations</h5>
+                        <p class="small text-secondary">Telemetry monitoring, policy enforcement, and endpoint detection using SentinelOne EDR platforms.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Terminal-Style Direct Contact -->
+        <div id="contact" class="row mt-4">
+            <div class="col-12">
+                <div class="console-card p-4 text-center">
+                    <h3 class="h5 text-info">// Establish Secure Connection</h3>
+                    <p class="text-secondary small">Direct communication channels for research collaboration and OT security inquiries.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a href="mailto:contact.aryatripathi@gmail.com" class="btn btn-outline-info">Email Gateway</a>
+                        <a href="https://wa.me/" class="btn btn-outline-warning" target="_blank">Direct Messaging</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
