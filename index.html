@@ -20,6 +20,11 @@
             --card-bg: #1a1f3a;
             --text-light: #e0e0e0;
             --text-muted: #9aa0b5;
+            
+            /* Team Accent Colors */
+            --blue-team: #00d4ff;
+            --purple-team: #a855f7;
+            --red-team: #ff4655;
         }
 
         body {
@@ -219,7 +224,7 @@
         /* Pillars Section */
         .pillars {
             background: rgba(26, 31, 58, 0.5);
-            padding: 4rem 5%;
+            padding: 5rem 5%;
             border-top: 1px solid rgba(0, 212, 255, 0.1);
             border-bottom: 1px solid rgba(0, 212, 255, 0.1);
         }
@@ -230,60 +235,71 @@
         }
 
         .pillars h2 {
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
             text-align: center;
             color: var(--text-light);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            align-items: start;
         }
 
         .pillar {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 2.2rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
-        .pillar-blue {
-            border-left: 4px solid #00d4ff;
-        }
-
-        .pillar-purple {
-            border-left: 4px solid #a855f7;
-        }
-
-        .pillar-red {
-            border-left: 4px solid #ff4655;
-        }
+        .pillar-blue { border-top: 4px solid var(--blue-team); }
+        .pillar-purple { border-top: 4px solid var(--purple-team); }
+        .pillar-red { border-top: 4px solid var(--red-team); }
 
         .pillar:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .pillar-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1rem;
+        }
+
+        .pillar-header h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: inline-block;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        .pillar-blue .pillar-tag { color: #00d4ff; }
-        .pillar-purple .pillar-tag { color: #a855f7; }
-        .pillar-red .pillar-tag { color: #ff4655; }
+        .pillar-blue .pillar-header h3 { color: var(--blue-team); }
+        .pillar-purple .pillar-header h3 { color: var(--purple-team); }
+        .pillar-red .pillar-header h3 { color: var(--red-team); }
 
-        .pillar h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .pillar-section {
+            margin-bottom: 1.4rem;
+        }
+
+        .pillar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .pillar-section h4 {
+            font-size: 0.98rem;
             color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .pillar-list {
@@ -294,16 +310,33 @@
 
         .pillar-list li {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            padding: 0.35rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
+            font-size: 0.88rem;
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.5;
         }
 
-        .pillar-blue .pillar-list li::before { content: "▸"; color: #00d4ff; }
-        .pillar-purple .pillar-list li::before { content: "▸"; color: #a855f7; }
-        .pillar-red .pillar-list li::before { content: "▸"; color: #ff4655; }
+        .pillar-blue .pillar-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--blue-team);
+        }
+
+        .pillar-purple .pillar-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--purple-team);
+        }
+
+        .pillar-red .pillar-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--red-team);
+        }
 
         /* Footer */
         footer {
@@ -316,6 +349,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -339,7 +378,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation linking to your pages/ directory -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">Arya Tripathi</div>
         <ul>
@@ -371,43 +410,113 @@
         </div>
     </section>
 
-    <!-- Core Pillars Section (Blue / Purple / Red Team) -->
+    <!-- Core Specialization Pillars Section -->
     <section class="pillars">
         <div class="pillars-container">
             <h2>Core Specialization Pillars</h2>
             <div class="pillars-grid">
                 
-                <!-- Blue Team Pillar -->
+                <!-- BLUE TEAM -->
                 <div class="pillar pillar-blue">
-                    <span class="pillar-tag">Blue Team</span>
-                    <h3>Digital Forensics & Analysis</h3>
-                    <ul class="pillar-list">
-                        <li><strong>Disk & Memory Forensics:</strong> Volatility extraction, KAPE artifact collection, and FTK analysis.</li>
-                        <li><strong>Malware & Email Forensics:</strong> Triage of malicious payloads, phishing inspection, and email artifacts.</li>
-                        <li><strong>Cloud & OSINT Forensics:</strong> Trace collection, investigation across hybrid systems, and dark web tracking.</li>
-                    </ul>
+                    <div class="pillar-header">
+                        <span>🔵</span>
+                        <h3>BLUE TEAM – Digital Forensics & Investigation</h3>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Disk & Memory Forensics</h4>
+                        <ul class="pillar-list">
+                            <li>FTK Imager, Autopsy, OS Forensics, Volatility memory dumps</li>
+                            <li>KAPE artifact collection and Triage analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Malware & Endpoint Analysis</h4>
+                        <ul class="pillar-list">
+                            <li>Triage of malicious payloads, behavioral analysis</li>
+                            <li>MITRE ATT&CK mapping, incident artifact correlation</li>
+                            <li>Email forensics (OST/PST), phishing investigation</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Critical Infrastructure Forensics</h4>
+                        <ul class="pillar-list">
+                            <li>Transport sector incident investigation (aviation, maritime)</li>
+                            <li>Cross-platform evidence collection and preservation</li>
+                            <li>Forensic reporting aligned with government standards</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Purple Team Pillar -->
+                <!-- PURPLE TEAM -->
                 <div class="pillar pillar-purple">
-                    <span class="pillar-tag">Purple Team</span>
-                    <h3>Detection, EDR & IR</h3>
-                    <ul class="pillar-list">
-                        <li><strong>EDR Deployment & Monitoring:</strong> SentinelOne administration, policy tuning, and live agent containment.</li>
-                        <li><strong>Incident Response Protocols:</strong> Rapid containment strategies for enterprise endpoints and bridge OT networks.</li>
-                        <li><strong>MITRE ATT&CK Alignment:</strong> Mapping adversary tactics to continuous detection and rule refinement.</li>
-                    </ul>
+                    <div class="pillar-header">
+                        <span>🟣</span>
+                        <h3>PURPLE TEAM – Endpoint Detection & Threat Response</h3>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Endpoint Detection & Response</h4>
+                        <ul class="pillar-list">
+                            <li>SentinelOne EDR administration, threat triage, agent deployment</li>
+                            <li>Real-time threat detection and containment protocols</li>
+                            <li>Policy tuning, detection rule refinement, hunt operations</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Incident Response & Containment</h4>
+                        <ul class="pillar-list">
+                            <li>Rapid isolation and remediation of compromised endpoints</li>
+                            <li>Incident timeline reconstruction and root cause analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Threat Hunting & ATT&CK Alignment</h4>
+                        <ul class="pillar-list">
+                            <li>Proactive threat hunting using behavioral baselines</li>
+                            <li>MITRE ATT&CK technique identification and mitigation</li>
+                            <li>Cyber Kill Chain mapping for threat intelligence reports</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Red Team Pillar -->
+                <!-- RED TEAM -->
                 <div class="pillar pillar-red">
-                    <span class="pillar-tag">Red Team</span>
-                    <h3>Attack Scenarios & Threat Intel</h3>
-                    <ul class="pillar-list">
-                        <li><strong>Navigation Threat Vectors:</strong> GNSS/GPS spoofing and jamming execution on bridge simulators.</li>
-                        <li><strong>Hardware & Embedded Security:</strong> Vulnerability assessment using Flipper Zero and hardware testing tools.</li>
-                        <li><strong>Civil & Critical Infrastructure Advisories:</strong> Sector-level threat modeling and action-oriented advisories.</li>
-                    </ul>
+                    <div class="pillar-header">
+                        <span>🔴</span>
+                        <h3>RED TEAM – Maritime Security & Threat Intelligence</h3>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Navigation System Attacks</h4>
+                        <ul class="pillar-list">
+                            <li>GPS/GNSS jamming and spoofing research on bridge simulators</li>
+                            <li>Physical maritime equipment vulnerability assessment</li>
+                            <li>Navigation threat scenario design and testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Maritime Cybersecurity Frameworks</h4>
+                        <ul class="pillar-list">
+                            <li>Cyber-attack scenario design for seafarer training programs</li>
+                            <li>IMO 2021 cyber risk compliance and guidelines</li>
+                            <li>IACS UR E26/E27 maritime standards implementation</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar-section">
+                        <h4>Infrastructure Threat Intelligence</h4>
+                        <ul class="pillar-list">
+                            <li>Sector-wide threat landscape analysis and adversary tracking</li>
+                            <li>Threat advisory production and intelligence reporting</li>
+                            <li>Dark web monitoring and critical infrastructure risk assessment</li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
