@@ -231,7 +231,7 @@
 
         .pillars h2 {
             font-size: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             color: var(--text-light);
         }
@@ -246,27 +246,64 @@
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 10px;
-            border-left: 4px solid var(--primary);
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pillar-blue {
+            border-left: 4px solid #00d4ff;
+        }
+
+        .pillar-purple {
+            border-left: 4px solid #a855f7;
+        }
+
+        .pillar-red {
+            border-left: 4px solid #ff4655;
         }
 
         .pillar:hover {
             transform: translateY(-5px);
-            border-left-color: var(--accent);
             box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
         }
 
-        .pillar h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
+        .pillar-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: inline-block;
         }
 
-        .pillar p {
+        .pillar-blue .pillar-tag { color: #00d4ff; }
+        .pillar-purple .pillar-tag { color: #a855f7; }
+        .pillar-red .pillar-tag { color: #ff4655; }
+
+        .pillar h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .pillar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pillar-list li {
             color: var(--text-muted);
             font-size: 0.92rem;
-            line-height: 1.6;
+            padding: 0.35rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
         }
+
+        .pillar-blue .pillar-list li::before { content: "▸"; color: #00d4ff; }
+        .pillar-purple .pillar-list li::before { content: "▸"; color: #a855f7; }
+        .pillar-red .pillar-list li::before { content: "▸"; color: #ff4655; }
 
         /* Footer */
         footer {
@@ -334,25 +371,45 @@
         </div>
     </section>
 
-    <!-- Core Pillars -->
+    <!-- Core Pillars Section (Blue / Purple / Red Team) -->
     <section class="pillars">
         <div class="pillars-container">
             <h2>Core Specialization Pillars</h2>
             <div class="pillars-grid">
-                <div class="pillar">
-                    <h3>Bridge Systems & GNSS Security</h3>
-                    <p>GPS/GNSS jamming and spoofing evaluation on physical bridge command simulators (SOMOS). Navigation safety aligned with IMO 2021 guidelines.</p>
+                
+                <!-- Blue Team Pillar -->
+                <div class="pillar pillar-blue">
+                    <span class="pillar-tag">Blue Team</span>
+                    <h3>Digital Forensics & Analysis</h3>
+                    <ul class="pillar-list">
+                        <li><strong>Disk & Memory Forensics:</strong> Volatility extraction, KAPE artifact collection, and FTK analysis.</li>
+                        <li><strong>Malware & Email Forensics:</strong> Triage of malicious payloads, phishing inspection, and email artifacts.</li>
+                        <li><strong>Cloud & OSINT Forensics:</strong> Trace collection, investigation across hybrid systems, and dark web tracking.</li>
+                    </ul>
                 </div>
 
-                <div class="pillar">
-                    <h3>Critical Infrastructure Threat Intel</h3>
-                    <p>Sector-wide threat monitoring, risk modeling, and advisory generation from national civil aviation infrastructure defense work.</p>
+                <!-- Purple Team Pillar -->
+                <div class="pillar pillar-purple">
+                    <span class="pillar-tag">Purple Team</span>
+                    <h3>Detection, EDR & IR</h3>
+                    <ul class="pillar-list">
+                        <li><strong>EDR Deployment & Monitoring:</strong> SentinelOne administration, policy tuning, and live agent containment.</li>
+                        <li><strong>Incident Response Protocols:</strong> Rapid containment strategies for enterprise endpoints and bridge OT networks.</li>
+                        <li><strong>MITRE ATT&CK Alignment:</strong> Mapping adversary tactics to continuous detection and rule refinement.</li>
+                    </ul>
                 </div>
 
-                <div class="pillar">
-                    <h3>DFIR & EDR Response</h3>
-                    <p>Incident response, artifact collection, Volatility memory analysis, and SentinelOne EDR operational deployment and threat triage.</p>
+                <!-- Red Team Pillar -->
+                <div class="pillar pillar-red">
+                    <span class="pillar-tag">Red Team</span>
+                    <h3>Attack Scenarios & Threat Intel</h3>
+                    <ul class="pillar-list">
+                        <li><strong>Navigation Threat Vectors:</strong> GNSS/GPS spoofing and jamming execution on bridge simulators.</li>
+                        <li><strong>Hardware & Embedded Security:</strong> Vulnerability assessment using Flipper Zero and hardware testing tools.</li>
+                        <li><strong>Civil & Critical Infrastructure Advisories:</strong> Sector-level threat modeling and action-oriented advisories.</li>
+                    </ul>
                 </div>
+
             </div>
         </div>
     </section>
