@@ -29,6 +29,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
             color: var(--text-light);
             line-height: 1.6;
@@ -91,22 +92,6 @@
             font-weight: 600;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after,
-        nav a.active::after {
-            width: 100%;
-        }
-
         /* Hero Section */
         .hero {
             display: grid;
@@ -117,12 +102,37 @@
             max-width: 1400px;
             margin: 0 auto;
             flex: 1;
+            width: 100%;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--primary);
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
         }
 
         .hero-content h1 {
             font-size: 3.2rem;
             margin-bottom: 1rem;
             line-height: 1.2;
+            color: #ffffff;
         }
 
         .hero-content .highlight {
@@ -131,18 +141,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
-        }
-
-        .hero-content .subtitle {
-            color: var(--primary);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            padding: 0.4rem 0.8rem;
-            border: 1px solid var(--primary);
-            border-radius: 5px;
         }
 
         .hero-content p {
@@ -176,7 +174,7 @@
 
         .btn-primary {
             background: var(--primary);
-            color: var(--secondary);
+            color: #0a0e27;
             border-color: var(--primary);
         }
 
@@ -195,11 +193,11 @@
 
         .btn-secondary:hover {
             background: var(--primary);
-            color: var(--secondary);
+            color: #0a0e27;
             transform: translateY(-2px);
         }
 
-        /* Enlarged Hero Image Frame */
+        /* Hero Image Frame */
         .hero-image {
             display: flex;
             justify-content: center;
@@ -213,12 +211,6 @@
             border: 3px solid var(--primary);
             box-shadow: 0 0 50px rgba(0, 212, 255, 0.25);
             object-fit: cover;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hero-image img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 60px rgba(0, 255, 136, 0.3);
         }
 
         /* Pillars Section */
@@ -227,6 +219,7 @@
             padding: 5rem 5%;
             border-top: 1px solid rgba(0, 212, 255, 0.1);
             border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            width: 100%;
         }
 
         .pillars-container {
@@ -254,18 +247,12 @@
             background: var(--card-bg);
             padding: 2.2rem;
             border-radius: 12px;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .pillar-blue { border-top: 4px solid var(--blue-team); }
         .pillar-purple { border-top: 4px solid var(--purple-team); }
         .pillar-red { border-top: 4px solid var(--red-team); }
-
-        .pillar:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-        }
 
         .pillar-header {
             display: flex;
@@ -291,10 +278,6 @@
             margin-bottom: 1.4rem;
         }
 
-        .pillar-section:last-child {
-            margin-bottom: 0;
-        }
-
         .pillar-section h4 {
             font-size: 0.98rem;
             color: var(--text-light);
@@ -317,26 +300,9 @@
             line-height: 1.5;
         }
 
-        .pillar-blue .pillar-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--blue-team);
-        }
-
-        .pillar-purple .pillar-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--purple-team);
-        }
-
-        .pillar-red .pillar-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--red-team);
-        }
+        .pillar-blue .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--blue-team); }
+        .pillar-purple .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--purple-team); }
+        .pillar-red .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--red-team); }
 
         /* Footer */
         footer {
@@ -350,29 +316,13 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .pillars-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
                 padding: 3rem 5%;
                 gap: 2rem;
             }
-
-            nav ul {
-                display: none;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-image img {
-                width: 280px;
-                height: 280px;
+            .pillars-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -395,12 +345,16 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="subtitle">Maritime & OT Cybersecurity</div>
-            <h1>Hello, I'm <span class="highlight">Arya Tripathi</span></h1>
+            <div class="status-badge">
+                <span class="status-dot"></span> MARITIME & OT CYBERSECURITY
+            </div>
+            
+            <h1>Hello, I'm <br><span class="highlight">Arya Tripathi</span></h1>
+            
             <p>Cybersecurity Specialist with 4+ years of hands-on experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
             
             <div class="hero-buttons">
-                <a href="pages/playbook.html" class="btn btn-primary">Marsec Playbook</a>
+                <a href="pages/playbook.html" class="btn btn-primary">MARSEC Playbook &#8594;</a>
                 <a href="pages/journey.html" class="btn btn-secondary">View Journey</a>
             </div>
         </div>
