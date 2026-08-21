@@ -140,6 +140,7 @@
             border-radius: 12px;
             padding: 2.5rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
         }
 
         .card h2 {
@@ -148,6 +149,12 @@
             margin-bottom: 1.2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 0.8rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin: 1.2rem 0 0.5rem 0;
         }
 
         .card p {
@@ -161,7 +168,43 @@
             color: var(--text-light);
         }
 
-        /* Experience Timeline Pill Stack */
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.2rem;
+        }
+
+        .card ul li {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Highlight box for "Why OT Security?" */
+        .quote-box {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .quote-box p {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Right Column Specific Styling (Matches Screenshot) */
         .timeline-item {
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
@@ -176,7 +219,7 @@
 
         .timeline-role {
             font-weight: 700;
-            color: var(--text-light);
+            color: #ffffff;
             font-size: 1rem;
         }
 
@@ -191,12 +234,11 @@
             color: var(--text-muted);
         }
 
-        /* Skill Tag Pills */
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.6rem;
-            margin-top: 1.2rem;
+            margin-top: 1rem;
         }
 
         .tag {
@@ -286,29 +328,67 @@
         <div class="page-header">
             <div class="status-badge">PROFILE & BACKGROUND</div>
             <h1>About Me</h1>
-            <p>Master's student in Cybersecurity & IoT Trust at ESILV, specializing in Maritime Operational Technology (OT) security, penetration testing, endpoint threat detection, and digital forensics.</p>
+            <p>Cybersecurity practitioner with 4+ years of experience in digital forensics, incident response, and operational technology (OT) security. Currently pursuing a Master's in Cybersecurity & IoT Trust at ESILV (Paris).</p>
         </div>
 
         <div class="about-grid">
-            <!-- Left Card: Bio -->
-            <div class="card">
-                <h2>Maritime & Critical Infrastructure Focus</h2>
-                
-                <p>I am an M2 Cybersecurity & IoT Trust student at <strong>ESILV (Paris)</strong> with 4+ years of hands-on experience bridging digital forensics, threat response, and operational technology (OT) security across critical national infrastructure sectors.</p>
-                
-                <p>During my maritime security research at the <strong>École Nationale Supérieure Maritime (ENSM)</strong>, I conducted specialized security assessments on vessel operational technologies, bridge command systems, and navigation software simulation (OpenCPN, Bridge Command). My work focused on identifying navigation attack vectors, GNSS spoofing vulnerability analysis, and mapping maritime compliance to <strong>IMO Resolution MSC.428(98)</strong> and <strong>IACS UR E26/E27</strong> standards.</p>
+            <!-- Left Column: Full Custom Bio Content -->
+            <div>
+                <div class="card">
+                    <h2>Overview</h2>
+                    <p>I'm a cybersecurity practitioner with 4+ years of experience in digital forensics, incident response, and operational technology (OT) security. Currently pursuing a Master's in Cybersecurity & IoT Trust at <strong>ESILV (Paris)</strong>, where I'm focusing on critical infrastructure defense and emerging OT threats.</p>
+                    <p>My background combines DFIR expertise, endpoint security operations, and hands-on OT research—giving me a practical foundation for understanding how industrial and critical infrastructure systems differ from traditional IT environments.</p>
 
-                <p>My professional background spans national civil aviation security consulting, enterprise digital forensics (DFIR), incident response, and hardware penetration testing (Flipper Zero, Wi-Fi Marauder). I specialize in analyzing threat vectors across both IT endpoints and isolated OT environments.</p>
+                    <h2>Key Highlights</h2>
 
-                <div class="btn-group">
-                    <a href="journey.html" class="btn btn-primary">View Full Journey</a>
-                    <a href="playbook.html" class="btn btn-secondary">Explore Marsec Playbooks →</a>
+                    <h3>Digital Forensics & Investigation</h3>
+                    <ul>
+                        <li>Memory analysis (Volatility), disk forensics (KAPE, Autopsy)</li>
+                        <li>Malware triage and behavioral analysis</li>
+                        <li>Email forensics and phishing investigation</li>
+                        <li>Cross-platform investigation (Windows, Linux, cloud)</li>
+                    </ul>
+
+                    <h3>Endpoint Threat Detection</h3>
+                    <ul>
+                        <li>SentinelOne EDR administration and threat hunting (SIREN Certified)</li>
+                        <li>Detection tuning and incident response protocols</li>
+                        <li>Behavioral analysis and threat actor tracking</li>
+                    </ul>
+
+                    <h3>OT & Critical Infrastructure Security</h3>
+                    <ul>
+                        <li>Hands-on research in operational technology systems</li>
+                        <li>Standards and compliance (IMO 2021, IACS UR E26/E27, NIST CSF)</li>
+                        <li>Hardware security and firmware analysis</li>
+                        <li>Understanding safety-critical system vulnerabilities</li>
+                    </ul>
+
+                    <h3>Threat Intelligence</h3>
+                    <ul>
+                        <li>Dark web monitoring and threat landscape analysis</li>
+                        <li>OSINT and adversary tracking</li>
+                        <li>Intelligence-driven incident response recommendations</li>
+                    </ul>
+
+                    <div class="btn-group">
+                        <a href="journey.html" class="btn btn-primary">View Full Journey</a>
+                        <a href="playbook.html" class="btn btn-secondary">Explore Playbooks →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Why OT Security?</h2>
+                    <p>Critical infrastructure is increasingly under threat, yet cybersecurity talent in the OT space remains scarce. Most security professionals come from IT backgrounds and miss the unique challenges of operational environments—where availability matters more than confidentiality, where downtime impacts safety, and where systems can't always be patched.</p>
+                    <div class="quote-box">
+                        <p>"I'm committed to building expertise that bridges IT and OT security thinking, and becoming someone who understands how both worlds work."</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right Card: Timeline & Stack -->
+            <!-- Right Column: Academic Timeline & Core Stack (Preserved exact from screenshot) -->
             <div>
-                <div class="card" style="margin-bottom: 2rem;">
+                <div class="card">
                     <h2>Academic & Career Timeline</h2>
                     
                     <div class="timeline-item">
