@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arya Tripathi - Maritime & OT Cybersecurity Specialist</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #00d4ff;
             --primary-dark: #0099cc;
@@ -16,6 +21,7 @@
             --text-light: #e0e0e0;
             --text-muted: #9aa0b5;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
@@ -25,6 +31,8 @@
             display: flex;
             flex-direction: column;
         }
+
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -37,76 +45,319 @@
             top: 0;
             z-index: 100;
         }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-        .logo::before { content: "◆ "; color: var(--accent); }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { color: var(--text-light); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        nav a:hover, nav a.active { color: var(--primary); }
-        nav a.highlight-link { color: var(--accent); font-weight: 600; }
-        
-        .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; padding: 5rem 5%; max-width: 1400px; margin: 0 auto; flex: 1; }
-        .hero-content h1 { font-size: 3.2rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero-content .highlight { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-content .subtitle { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; display: inline-block; padding: 0.4rem 0.8rem; border: 1px solid var(--primary); border-radius: 5px; }
-        .hero-content p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2rem; }
-        .btn { padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: 2px solid; display: inline-flex; gap: 0.5rem; text-transform: uppercase; transition: all 0.3s ease; }
-        .btn-primary { background: var(--primary); color: var(--secondary); border-color: var(--primary); }
-        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
-        .btn-secondary { background: transparent; color: var(--primary); border-color: var(--primary); }
-        .btn-secondary:hover { background: var(--primary); color: var(--secondary); transform: translateY(-2px); }
-        .hero-image img { width: 280px; height: 280px; border-radius: 15px; border: 2px solid var(--primary); box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); object-fit: cover; }
-        
-        .pillars { background: rgba(26, 31, 58, 0.5); padding: 4rem 5%; border-top: 1px solid rgba(0, 212, 255, 0.1); border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
-        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1400px; margin: 2rem auto 0; }
-        .pillar { background: var(--card-bg); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--primary); }
-        .pillar h3 { color: var(--primary); margin-bottom: 0.8rem; }
-        
-        footer { background: rgba(10, 14, 39, 0.95); padding: 2rem 5%; text-align: center; color: var(--text-muted); font-size: 0.88rem; border-top: 1px solid rgba(0, 212, 255, 0.1); }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "◆";
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.highlight-link {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .hero-content .subtitle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 2px solid;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Enlarged Hero Image Frame */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 380px;
+            height: 380px;
+            border-radius: 20px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.25);
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Pillars Section */
+        .pillars {
+            background: rgba(26, 31, 58, 0.5);
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .pillars-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pillars h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .pillar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .pillar p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+                gap: 2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-image img {
+                width: 280px;
+                height: 280px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation linking to your pages/ directory -->
     <nav>
         <div class="logo">Arya Tripathi</div>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="playbooks.html" class="highlight-link">Marsec Playbooks</a></li>
-            <li><a href="experience.html">Experience & Certs</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/services.html">Services</a></li>
+            <li><a href="pages/playbook.html" class="highlight-link">Playbook</a></li>
+            <li><a href="pages/journey.html">Journey</a></li>
+            <li><a href="pages/certifications.html">Certs</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="subtitle">Maritime & OT Cybersecurity</div>
             <h1>Hello, I'm <span class="highlight">Arya Tripathi</span></h1>
-            <p>Cybersecurity Specialist with 4+ years of experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
-            <div style="display: flex; gap: 1rem;">
-                <a href="playbooks.html" class="btn btn-primary">Explore Playbooks</a>
-                <a href="experience.html" class="btn btn-secondary">View Journey</a>
+            <p>Cybersecurity Specialist with 4+ years of hands-on experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
+            
+            <div class="hero-buttons">
+                <a href="pages/playbook.html" class="btn btn-primary">Marsec Playbook</a>
+                <a href="pages/journey.html" class="btn btn-secondary">View Journey</a>
             </div>
         </div>
+
         <div class="hero-image">
-            <img src="assets/profile.jpg" alt="Arya Tripathi" onerror="this.src='https://via.placeholder.com/280x280/1a1f3a/00d4ff?text=Arya+Tripathi'">
+            <img src="assets/profile.jpg" alt="Arya Tripathi" onerror="this.src='https://via.placeholder.com/380x380/1a1f3a/00d4ff?text=Arya+Tripathi'">
         </div>
     </section>
 
+    <!-- Core Pillars -->
     <section class="pillars">
-        <h2 style="text-align: center; font-size: 2rem;">Core Specialization Pillars</h2>
-        <div class="pillars-grid">
-            <div class="pillar">
-                <h3>Bridge Systems & GNSS Security</h3>
-                <p style="color: var(--text-muted);">GPS/GNSS jamming and spoofing evaluation on physical bridge command simulators (SOMOS). Navigation safety aligned with IMO 2021.</p>
-            </div>
-            <div class="pillar">
-                <h3>Critical Infrastructure Threat Intel</h3>
-                <p style="color: var(--text-muted);">Sector-wide threat monitoring, risk modeling, and advisory generation from national transport cybersecurity experience.</p>
-            </div>
-            <div class="pillar">
-                <h3>DFIR & EDR Response</h3>
-                <p style="color: var(--text-muted);">Incident response, artifact collection, Volatility memory analysis, and SentinelOne EDR operational management.</p>
+        <div class="pillars-container">
+            <h2>Core Specialization Pillars</h2>
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <h3>Bridge Systems & GNSS Security</h3>
+                    <p>GPS/GNSS jamming and spoofing evaluation on physical bridge command simulators (SOMOS). Navigation safety aligned with IMO 2021 guidelines.</p>
+                </div>
+
+                <div class="pillar">
+                    <h3>Critical Infrastructure Threat Intel</h3>
+                    <p>Sector-wide threat monitoring, risk modeling, and advisory generation from national civil aviation infrastructure defense work.</p>
+                </div>
+
+                <div class="pillar">
+                    <h3>DFIR & EDR Response</h3>
+                    <p>Incident response, artifact collection, Volatility memory analysis, and SentinelOne EDR operational deployment and threat triage.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
     </footer>
