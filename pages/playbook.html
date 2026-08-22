@@ -4,86 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Resources | Arya Tripathi</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
             --accent: #00ff88;
-            --dark-bg: #0a0e27;
-            --card-bg: #111736;
+            --dark-bg: #080c24;
+            --card-bg: rgba(15, 23, 50, 0.6);
+            --card-border: rgba(0, 212, 255, 0.12);
             --text-light: #e0e0e0;
-            --text-muted: #9aa0b5;
+            --text-muted: #8e99b0;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark-bg); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: space-between; padding: 1.2rem 5%; border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark-bg); 
+            color: var(--text-light); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        /* Navigation */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1.5rem 8%; 
+            background: var(--dark-bg);
+        }
+        .logo { font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 1.8rem; }
+        nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
         nav a:hover, nav a.active { color: var(--primary); }
 
-        .container { max-width: 1100px; margin: 2rem auto; padding: 0 5%; flex: 1; width: 100%; }
-        .page-title { font-size: 2.2rem; color: #fff; margin-bottom: 0.3rem; }
-        .page-desc { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        /* Container & Header */
+        .container { 
+            max-width: 1200px; 
+            margin: 2.5rem auto; 
+            padding: 0 5%; 
+            flex: 1; 
+            width: 100%; 
+        }
+        .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
+        .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 
+        /* Filter Controls */
         .controls-row {
             display: flex;
-            gap: 1rem;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 1.5rem;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        .search-box {
-            background: #111736;
+        .search-input {
+            background: rgba(15, 23, 50, 0.8);
             border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 6px;
+            padding: 0.6rem 1rem;
             color: #fff;
-            padding: 0.5rem 0.8rem;
-            border-radius: 4px;
-            width: 240px;
+            font-size: 0.88rem;
+            width: 280px;
+            outline: none;
+            transition: border-color 0.2s;
         }
-        .filter-group { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+        .search-input:focus { border-color: var(--primary); }
+        
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
         .filter-btn {
-            background: #111736;
+            background: rgba(15, 23, 50, 0.4);
             border: 1px solid rgba(0, 212, 255, 0.2);
             color: var(--text-muted);
-            padding: 0.4rem 0.8rem;
+            padding: 0.45rem 0.9rem;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
-        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #0a0e27; font-weight: 600; }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: #080c24;
+            border-color: var(--primary);
+        }
 
-        .main-layout { display: grid; grid-template-columns: 1fr 260px; gap: 1.5rem; }
-        .articles-col { display: flex; flex-direction: column; gap: 1rem; }
+        /* Two-Column Layout */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
 
+        /* Article Cards Grid */
+        .articles-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
         .article-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+        .article-card:hover { border-color: rgba(0, 212, 255, 0.4); }
+        
+        .article-meta-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-dfir { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
+        .badge-ot { background: rgba(0, 212, 255, 0.15); color: #00d4ff; }
+        .badge-endpoint { background: rgba(255, 184, 108, 0.15); color: #ffb86c; }
+        .badge-hardware { background: rgba(189, 147, 249, 0.15); color: #bd93f9; }
+        .badge-intel { background: rgba(255, 85, 85, 0.15); color: #ff5555; }
+
+        .read-time { font-size: 0.78rem; color: var(--text-muted); }
+        .article-title { font-size: 1.25rem; color: #00d4ff; margin-bottom: 0.6rem; cursor: pointer; }
+        .article-title:hover { text-decoration: underline; }
+        .article-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; }
+        
+        .article-meta-bottom {
+            font-size: 0.78rem;
+            color: #616e88;
+            display: flex;
+            gap: 0.8rem;
+        }
+        .tags { color: #8e99b0; }
+
+        /* Sidebar */
+        .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        .sidebar-widget {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
             padding: 1.2rem;
         }
-        .article-meta { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.5rem; }
-        .tag-badge { background: rgba(0,255,136,0.1); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 3px; }
-        .read-time { color: var(--text-muted); }
-        .article-title { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.4rem; text-decoration: none; display: block; }
-        .article-excerpt { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.8rem; }
-        .article-footer { font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 0.5rem; }
-
-        .sidebar-box {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 6px;
-            padding: 1rem;
+        .widget-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
         }
-        .sidebar-title { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.8rem; border-bottom: 1px solid rgba(0,212,255,0.15); padding-bottom: 0.3rem; }
-        .sidebar-list { list-style: none; font-size: 0.85rem; }
-        .sidebar-list li { margin-bottom: 0.4rem; }
-        .sidebar-list a { color: var(--text-light); text-decoration: none; }
-        .sidebar-list a:hover { color: var(--accent); }
+        .sidebar-list { list-style: none; }
+        .sidebar-list li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .sidebar-list li:hover { color: #fff; }
 
-        footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(0,212,255,0.1); }
-        @media(max-width: 768px) { .main-layout { grid-template-columns: 1fr; } }
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            color: #616e88; 
+            font-size: 0.8rem; 
+            background: var(--dark-bg);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 850px) {
+            .content-layout { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -104,58 +210,69 @@
         <h1 class="page-title">Research &amp; Insights</h1>
         <p class="page-desc">Technical articles, research findings, and practical guides</p>
 
+        <!-- Search & Category Filters -->
         <div class="controls-row">
-            <input type="text" id="searchInput" class="search-box" placeholder="Search articles..." onkeyup="filterArticles()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search articles..." onkeyup="filterArticles()">
+            
             <div class="filter-group">
-                <button class="filter-btn active" onclick="setCategory('all', this)">All</button>
-                <button class="filter-btn" onclick="setCategory('DFIR', this)">DFIR</button>
-                <button class="filter-btn" onclick="setCategory('OT', this)">OT</button>
-                <button class="filter-btn" onclick="setCategory('Endpoint', this)">Endpoint</button>
-                <button class="filter-btn" onclick="setCategory('Hardware', this)">Hardware</button>
-                <button class="filter-btn" onclick="setCategory('Threat Intel', this)">Threat Intel</button>
+                <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
+                <button class="filter-btn" onclick="filterCategory('DFIR', this)">DFIR</button>
+                <button class="filter-btn" onclick="filterCategory('OT', this)">OT</button>
+                <button class="filter-btn" onclick="filterCategory('Endpoint', this)">Endpoint</button>
+                <button class="filter-btn" onclick="filterCategory('Hardware', this)">Hardware</button>
+                <button class="filter-btn" onclick="filterCategory('Threat Intel', this)">Threat Intel</button>
             </div>
         </div>
 
-        <div class="main-layout">
-            <main class="articles-col" id="articleList">
+        <div class="content-layout">
+            <!-- Article Cards Grid -->
+            <div class="articles-grid" id="articlesGrid">
+                
                 <article class="article-card" data-category="DFIR">
-                    <div class="article-meta">
-                        <span class="tag-badge">DFIR</span>
+                    <div class="article-meta-top">
+                        <span class="badge badge-dfir">DFIR</span>
                         <span class="read-time">8 min read</span>
                     </div>
-                    <a href="#" class="article-title">OT Memory Forensics Guide</a>
+                    <h2 class="article-title">OT Memory Forensics Guide</h2>
                     <p class="article-excerpt">Step-by-step artifact extraction and Volatility framework workflows tailored for compromised industrial control systems and embedded shipboard gateways.</p>
-                    <div class="article-footer">
-                        <span>Aug 15, 2026</span> &bull; <span>#Volatility #OT Security</span>
+                    <div class="article-meta-bottom">
+                        <span>Aug 15, 2026</span>
+                        <span>•</span>
+                        <span class="tags">#Volatility #OT Security</span>
                     </div>
                 </article>
 
                 <article class="article-card" data-category="OT">
-                    <div class="article-meta">
-                        <span class="tag-badge">OT</span>
+                    <div class="article-meta-top">
+                        <span class="badge badge-ot">OT</span>
                         <span class="read-time">12 min read</span>
                     </div>
-                    <a href="#" class="article-title">NMEA 0183 &amp; AIS Threat Matrix</a>
+                    <h2 class="article-title">NMEA 0183 &amp; AIS Threat Matrix</h2>
                     <p class="article-excerpt">Technical breakdown of unencrypted marine navigation protocols, spoofing mechanisms, and detection heuristics for vessel bridge networks.</p>
-                    <div class="article-footer">
-                        <span>Jul 28, 2026</span> &bull; <span>#Maritime #NMEA</span>
+                    <div class="article-meta-bottom">
+                        <span>Jul 28, 2026</span>
+                        <span>•</span>
+                        <span class="tags">#Maritime #NMEA</span>
                     </div>
                 </article>
-            </main>
 
-            <aside>
-                <div class="sidebar-box">
-                    <h3 class="sidebar-title">Categories</h3>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Categories</h3>
                     <ul class="sidebar-list">
-                        <li><a href="#" onclick="setCategory('DFIR')">DFIR (1)</a></li>
-                        <li><a href="#" onclick="setCategory('OT')">OT / ICS (1)</a></li>
+                        <li onclick="filterCategory('DFIR')">DFIR (1)</li>
+                        <li onclick="filterCategory('OT')">OT / ICS (1)</li>
                     </ul>
                 </div>
-                <div class="sidebar-box">
-                    <h3 class="sidebar-title">Latest Articles</h3>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Latest Articles</h3>
                     <ul class="sidebar-list">
-                        <li><a href="#">OT Memory Forensics Guide</a></li>
-                        <li><a href="#">NMEA 0183 &amp; AIS Threat Matrix</a></li>
+                        <li>OT Memory Forensics Guide</li>
+                        <li>NMEA 0183 &amp; AIS Threat Matrix</li>
                     </ul>
                 </div>
             </aside>
@@ -167,31 +284,33 @@
     </footer>
 
     <script>
-        let currentCategory = 'all';
+        let selectedCategory = 'All';
 
-        function setCategory(cat, el) {
-            currentCategory = cat;
-            if(el) {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                el.classList.add('active');
+        function filterCategory(category, element) {
+            selectedCategory = category;
+            if (element) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                element.classList.add('active');
             }
             filterArticles();
         }
 
         function filterArticles() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const articles = document.querySelectorAll('.article-card');
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.article-card');
 
-            articles.forEach(art => {
-                const cat = art.getAttribute('data-category');
-                const text = art.innerText.toLowerCase();
-                const matchesCat = (currentCategory === 'all' || cat === currentCategory);
-                const matchesSearch = text.includes(query);
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.querySelector('.article-title').innerText.toLowerCase();
+                const excerpt = card.querySelector('.article-excerpt').innerText.toLowerCase();
+                
+                const matchesCategory = selectedCategory === 'All' || category === selectedCategory;
+                const matchesSearch = title.includes(searchQuery) || excerpt.includes(searchQuery);
 
-                if (matchesCat && matchesSearch) {
-                    art.style.display = 'block';
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
                 } else {
-                    art.style.display = 'none';
+                    card.style.display = 'none';
                 }
             });
         }
