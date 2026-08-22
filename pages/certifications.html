@@ -3,48 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications | Arya Tripathi</title>
+    <title>Certifications & Speaking | Arya Tripathi</title>
+    
+    <!-- Tab Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
             --accent: #00ff88;
-            --dark-bg: #0a0e27;
-            --card-bg: #111736;
+            --dark-bg: #080c24;
+            --card-bg: rgba(15, 23, 50, 0.6);
+            --card-border: rgba(0, 212, 255, 0.12);
             --text-light: #e0e0e0;
-            --text-muted: #9aa0b5;
+            --text-muted: #8e99b0;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark-bg); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: space-between; padding: 1.2rem 5%; border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark-bg); 
+            color: var(--text-light); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        /* Navigation */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1.5rem 8%; 
+            background: var(--dark-bg);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-svg { width: 32px; height: 32px; }
+        .logo-text { font-size: 1.1rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 1.8rem; }
+        nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
         nav a:hover, nav a.active { color: var(--primary); }
 
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 5%; flex: 1; width: 100%; }
-        .page-title { font-size: 2.2rem; color: #fff; margin-bottom: 0.3rem; }
-        .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+        /* Container & Header */
+        .container { 
+            max-width: 1100px; 
+            margin: 2.5rem auto; 
+            padding: 0 5%; 
+            flex: 1; 
+            width: 100%; 
+        }
+        .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
+        .page-desc { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 0.95rem; }
 
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+        .section-header {
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 212, 255, 0.15);
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
         .cert-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.15);
+            border: 1px solid var(--card-border);
             border-radius: 8px;
-            padding: 1.2rem;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .badge-ir { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
+        .badge-ot { background: rgba(0, 212, 255, 0.12); color: #00d4ff; }
+        .badge-network { background: rgba(189, 147, 249, 0.12); color: #bd93f9; }
+        .badge-sec { background: rgba(255, 184, 108, 0.12); color: #ffb86c; }
+        .badge-pm { background: rgba(255, 85, 85, 0.12); color: #ff5555; }
+
+        .cert-title {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.82rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Speaking Engagements List */
+        .speaking-list {
             display: flex;
             flex-direction: column;
+            gap: 1.5rem;
         }
-        .cert-tag { font-size: 0.7rem; color: var(--accent); background: rgba(0,255,136,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; align-self: flex-start; margin-bottom: 0.8rem; }
-        .cert-title { font-size: 1.1rem; color: #fff; margin-bottom: 0.3rem; }
-        .cert-issuer { font-size: 0.8rem; color: var(--primary); margin-bottom: 0.8rem; }
-        .cert-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
-        footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(0,212,255,0.1); }
+        .speaking-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.5rem 1.8rem;
+        }
+
+        .speaking-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .speaking-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .speaking-date {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(0, 212, 255, 0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .speaking-location {
+            font-size: 0.85rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .speaking-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            color: #616e88; 
+            font-size: 0.8rem; 
+            background: var(--dark-bg);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .speaking-top { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="../index.html" class="logo">ARYA TRIPATHI</a>
+        <a href="../index.html" class="logo-container">
+            <svg class="nav-logo-svg" viewBox="0 0 100 100">
+                <!-- Hexagon Frame -->
+                <polygon points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5" fill="none" stroke="#00ff88" stroke-width="4" stroke-linejoin="round"/>
+                <!-- Hexagon Nodes -->
+                <circle cx="50" cy="5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="27.5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="50" cy="95" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="27.5" r="4" fill="#00d4ff"/>
+                <!-- Anchor Icon -->
+                <circle cx="50" cy="30" r="5" fill="none" stroke="#00d4ff" stroke-width="3.5"/>
+                <line x1="50" y1="35" x2="50" y2="70" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="44" x2="62" y2="44" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 30,58 C 30,76 70,76 70,58" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">ARYA TRIPATHI</span>
+        </a>
         <ul>
             <li><a href="../index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
@@ -57,30 +232,77 @@
     </nav>
 
     <div class="container">
-        <h1 class="page-title">Certifications</h1>
-        <p class="page-desc">Verified professional certifications covering incident response, industrial control systems, and network defense.</p>
+        <h1 class="page-title">Certifications &amp; Speaking</h1>
+        <p class="page-desc">Verified professional certifications and technical conference speaking engagements.</p>
 
+        <!-- Certifications Section -->
+        <h2 class="section-header">Certifications</h2>
         <div class="cert-grid">
+            
+            <!-- Card 1 -->
             <div class="cert-card">
-                <span class="cert-tag">ENDPOINT &amp; IR</span>
-                <h2 class="cert-title">SIREN</h2>
+                <span class="badge badge-ir">ENDPOINT &amp; IR</span>
+                <div class="cert-title">SIREN</div>
                 <div class="cert-issuer">SentinelOne Incident Response Engineer</div>
-                <p class="cert-desc">Specialized engineering certification in SentinelOne EDR deployment, threat triage, and incident response orchestration.</p>
+                <div class="cert-desc">Specialized engineering certification in SentinelOne EDR deployment, threat triage, and incident response orchestration.</div>
             </div>
 
+            <!-- Card 2 -->
             <div class="cert-card">
-                <span class="cert-tag">ICS / OT SECURITY</span>
-                <h2 class="cert-title">210W-06 ICS Cybersecurity Threats</h2>
+                <span class="badge badge-ot">ICS / OT SECURITY</span>
+                <div class="cert-title">210W-06 ICS Cybersecurity Threats</div>
                 <div class="cert-issuer">CISA (Cybersecurity &amp; Infrastructure Security Agency)</div>
-                <p class="cert-desc">Industrial control systems threat modeling, OT network defense, and critical infrastructure risk management.</p>
+                <div class="cert-desc">Industrial control systems threat modeling, OT network defense, and critical infrastructure risk management.</div>
             </div>
 
+            <!-- Card 3 -->
             <div class="cert-card">
-                <span class="cert-tag">NETWORK DEFENSE</span>
-                <h2 class="cert-title">Certified Network Security Specialist</h2>
+                <span class="badge badge-network">NETWORK DEFENSE</span>
+                <div class="cert-title">Certified Network Security Specialist</div>
                 <div class="cert-issuer">ICSI</div>
-                <p class="cert-desc">Core network defense architecture, protocol security, packet inspection, and perimeter defense configurations.</p>
+                <div class="cert-desc">Core network defense architecture, protocol security, packet inspection, and perimeter defense configurations.</div>
             </div>
+
+            <!-- Card 4 -->
+            <div class="cert-card">
+                <span class="badge badge-sec">SECURITY ASSESSMENT</span>
+                <div class="cert-title">Ethical Hacking: Vulnerability Analysis</div>
+                <div class="cert-issuer">Vulnerability Assessment &amp; Penetration Testing</div>
+                <div class="cert-desc">Applied methodologies for identifying, categorizing, and mitigating system and network security vulnerabilities.</div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="cert-card">
+                <span class="badge badge-pm">METHODOLOGY</span>
+                <div class="cert-title">Agile Methodology - Scrum</div>
+                <div class="cert-issuer">Agile Development Frameworks</div>
+                <div class="cert-desc">Scrum framework practices for project execution, continuous delivery, and cross-functional technical workflows.</div>
+            </div>
+
+        </div>
+
+        <!-- Conferences & Speaking Engagements Section -->
+        <h2 class="section-header">Conferences &amp; Speaking Engagements</h2>
+        <div class="speaking-list">
+            
+            <div class="speaking-card">
+                <div class="speaking-top">
+                    <div class="speaking-title">Cyber Laws Relating to Women</div>
+                    <div class="speaking-date">02.03.2025 – 03.03.2025</div>
+                </div>
+                <div class="speaking-location">Vigyan Bhawan | New Delhi, India</div>
+                <div class="speaking-desc">Represented the Ministry of Civil Aviation, Government of India in the Final Law Review Consultation on "Cyber Laws Relating to Women" and proposed key recommendations on draft amendments.</div>
+            </div>
+
+            <div class="speaking-card">
+                <div class="speaking-top">
+                    <div class="speaking-title">7th INTERPOL Digital Forensics Expert Meeting</div>
+                    <div class="speaking-date">08.11.2022 – 10.11.2022</div>
+                </div>
+                <div class="speaking-location">National Forensic Sciences University | Gandhinagar, India</div>
+                <div class="speaking-desc">Represented ESF Labs Limited at the 7th INTERPOL Digital Forensics Expert Meeting, presenting advanced forensic tools and solutions to global law enforcement and cybersecurity experts.</div>
+            </div>
+
         </div>
     </div>
 
