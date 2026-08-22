@@ -43,7 +43,7 @@
             gap: 10px;
             text-decoration: none;
         }
-        .nav-logo-svg { width: 28px; height: 28px; }
+        .nav-logo-svg { width: 32px; height: 32px; }
         .logo-text { font-size: 1.1rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
@@ -283,20 +283,20 @@
     <nav>
         <a href="../index.html" class="logo-container">
             <svg class="nav-logo-svg" viewBox="0 0 100 100">
-                <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="#0a0e27" stroke="#00d4ff" stroke-width="4" stroke-linejoin="round"/>
-                <circle cx="50" cy="5" r="3" fill="#00ff88"/>
-                <circle cx="90" cy="27.5" r="3" fill="#00ff88"/>
-                <circle cx="90" cy="72.5" r="3" fill="#00ff88"/>
-                <circle cx="50" cy="95" r="3" fill="#00ff88"/>
-                <circle cx="10" cy="72.5" r="3" fill="#00ff88"/>
-                <circle cx="10" cy="27.5" r="3" fill="#00ff88"/>
-                <circle cx="50" cy="24" r="5" fill="none" stroke="#00d4ff" stroke-width="3"/>
-                <line x1="50" y1="29" x2="50" y2="72" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
-                <line x1="38" y1="38" x2="62" y2="38" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
-                <path d="M 28,58 C 28,78 72,78 72,58" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
-                <polygon points="28,52 23,60 33,60" fill="#00ff88"/>
-                <polygon points="72,52 67,60 77,60" fill="#00ff88"/>
-                <circle cx="50" cy="50" r="4" fill="#00ff88"/>
+                <!-- Hexagon Frame -->
+                <polygon points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5" fill="none" stroke="#00ff88" stroke-width="4" stroke-linejoin="round"/>
+                <!-- Hexagon Nodes -->
+                <circle cx="50" cy="5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="27.5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="50" cy="95" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="27.5" r="4" fill="#00d4ff"/>
+                <!-- Anchor Icon -->
+                <circle cx="50" cy="30" r="5" fill="none" stroke="#00d4ff" stroke-width="3.5"/>
+                <line x1="50" y1="35" x2="50" y2="70" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="44" x2="62" y2="44" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 30,58 C 30,76 70,76 70,58" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
             </svg>
             <span class="logo-text">ARYA TRIPATHI</span>
         </a>
@@ -456,7 +456,6 @@
             const categoryGroups = document.querySelectorAll('.category-group');
 
             categoryGroups.forEach(group => {
-                const groupCategory = group.getAttribute('data-category-group');
                 const items = group.querySelectorAll('.resource-item');
                 let visibleCount = 0;
 
