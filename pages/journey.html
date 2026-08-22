@@ -58,75 +58,135 @@
             width: 100%; 
         }
         .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
-        .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+        .page-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 0.95rem; }
 
-        /* Journey Grid */
-        .journey-grid {
+        /* Two Column Layout Container */
+        .journey-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            position: relative;
         }
 
-        .journey-card {
+        /* Center Connecting Line */
+        .journey-columns::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 1rem;
+            bottom: 1rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 50%, rgba(0, 212, 255, 0.1) 100%);
+            transform: translateX(-50%);
+        }
+
+        .column-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .column-header.edu { color: var(--accent); }
+        .column-header.exp { color: var(--primary); }
+
+        /* Timeline List */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 8px;
-            padding: 1.8rem;
+            padding: 1.5rem;
+            position: relative;
             transition: border-color 0.2s, transform 0.2s;
         }
 
-        .journey-card:hover {
+        .timeline-card:hover {
             border-color: rgba(0, 212, 255, 0.3);
             transform: translateY(-2px);
         }
 
+        /* Timeline Node Dot */
+        .edu-col .timeline-card::after {
+            content: '';
+            position: absolute;
+            right: -1.95rem;
+            top: 1.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        .exp-col .timeline-card::after {
+            content: '';
+            position: absolute;
+            left: -1.95rem;
+            top: 1.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
         .badge {
             display: inline-block;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 700;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
             text-transform: uppercase;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
         .badge-edu { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
         .badge-intern { background: rgba(0, 212, 255, 0.12); color: #00d4ff; }
         .badge-proj { background: rgba(189, 147, 249, 0.12); color: #bd93f9; }
+        .badge-work { background: rgba(255, 184, 108, 0.12); color: #ffb86c; }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #fff;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .card-subtitle {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
         }
 
         .card-meta {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .card-bullets {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
         .card-bullets li {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #c4cedf;
             line-height: 1.4;
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 1.1rem;
         }
 
         .card-bullets li::before {
@@ -143,7 +203,16 @@
             color: #616e88; 
             font-size: 0.8rem; 
             background: var(--dark-bg);
-            margin-top: 3rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .journey-columns {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .journey-columns::before { display: none; }
+            .edu-col .timeline-card::after, .exp-col .timeline-card::after { display: none; }
         }
     </style>
 </head>
@@ -178,47 +247,81 @@
 
     <div class="container">
         <h1 class="page-title">Professional Journey</h1>
-        <p class="page-desc">Academic milestones, maritime cybersecurity research, and operational engineering background.</p>
+        <p class="page-desc">Academic milestones, hardware fault injection research, and maritime cybersecurity background.</p>
 
-        <div class="journey-grid">
+        <div class="journey-columns">
             
-            <!-- Education Entry -->
-            <div class="journey-card">
-                <span class="badge badge-edu">EDUCATION</span>
-                <div class="card-title">Master's Degree (M2)</div>
-                <div class="card-subtitle">ESILV Graduate School of Engineering</div>
-                <div class="card-meta">Paris, France • 2025 – Present</div>
-                <ul class="card-bullets">
-                    <li>Specialization in Cybersecurity &amp; IoT Trust</li>
-                    <li>Embedded systems &amp; hardware security</li>
-                    <li>OT / Critical Infrastructure protection</li>
-                </ul>
+            <!-- Left Column: Education & Academic Projects -->
+            <div class="edu-col">
+                <h2 class="column-header edu"><span>🎓</span> Education &amp; Academic Projects</h2>
+                <div class="timeline-list">
+                    
+                    <div class="timeline-card">
+                        <span class="badge badge-edu">MASTER'S DEGREE</span>
+                        <div class="card-title">M.S. in Cybersecurity &amp; IoT Trust</div>
+                        <div class="card-subtitle">ESILV Graduate School of Engineering</div>
+                        <div class="card-meta">Paris, France • 2025 – Present</div>
+                        <ul class="card-bullets">
+                            <li>Specialization in Embedded Hardware Security &amp; IoT Systems</li>
+                            <li>OT / Critical Infrastructure protection methodologies</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="badge badge-proj">M1 ACADEMIC PROJECT</span>
+                        <div class="card-title">Hardware Fault Injection Setup</div>
+                        <div class="card-subtitle">ESILV LabCyber (Team 436)</div>
+                        <div class="card-meta">Paris, France • M1 Academic Project</div>
+                        <ul class="card-bullets">
+                            <li>Implemented Clock Glitching, Voltage Glitching, and EMFI using ChipWhisperer &amp; ChipShouter[cite: 2]</li>
+                            <li>Executed password bypass attacks and memory dumping via side-channel analysis timing triggers[cite: 2]</li>
+                            <li>Developed automated Python parametric scan notebooks and target reset management scripts[cite: 2]</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="badge badge-edu">POSTGRADUATE DIPLOMA</span>
+                        <div class="card-title">PG Diploma in Cyber Security &amp; Forensics</div>
+                        <div class="card-subtitle">Rashtriya Raksha University</div>
+                        <div class="card-meta">Gujarat, India • 2019 – 2020</div>
+                        <ul class="card-bullets">
+                            <li>Digital forensics investigations, memory analysis, and cyber law</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
 
-            <!-- ENSM Internship Entry -->
-            <div class="journey-card">
-                <span class="badge badge-intern">INTERNSHIP</span>
-                <div class="card-title">Maritime Cybersecurity Intern</div>
-                <div class="card-subtitle">École Nationale Supérieure Maritime (ENSM)</div>
-                <div class="card-meta">Nantes, France • Apr 2026 – Aug 2026</div>
-                <ul class="card-bullets">
-                    <li>NMEA 0183 &amp; AIS packet analysis</li>
-                    <li>Bridge simulator threat modeling</li>
-                    <li>OT memory forensics workflows</li>
-                </ul>
-            </div>
+            <!-- Right Column: Professional Experience -->
+            <div class="exp-col">
+                <h2 class="column-header exp"><span>⚓</span> Professional Experience</h2>
+                <div class="timeline-list">
+                    
+                    <div class="timeline-card">
+                        <span class="badge badge-intern">INTERNSHIP</span>
+                        <div class="card-title">Maritime Cybersecurity Intern</div>
+                        <div class="card-subtitle">École Nationale Supérieure Maritime (ENSM)</div>
+                        <div class="card-meta">Nantes, France • Apr 2026 – Aug 2026</div>
+                        <ul class="card-bullets">
+                            <li>NMEA 0183 &amp; AIS packet analysis on shipboard telemetry</li>
+                            <li>Bridge simulator threat modeling &amp; vulnerability assessment</li>
+                            <li>OT memory forensics workflows for maritime control systems</li>
+                        </ul>
+                    </div>
 
-            <!-- M1 Academic Project Entry -->
-            <div class="journey-card">
-                <span class="badge badge-proj">ACADEMIC PROJECT</span>
-                <div class="card-title">Hardware Fault Injection Setup</div>
-                <div class="card-subtitle">ESILV LabCyber Project (Team 436)</div>
-                <div class="card-meta">Paris, France • M1 Academic Project</div>
-                <ul class="card-bullets">
-                    <li>Implemented Clock Glitching, Voltage Glitching, and EMFI using ChipWhisperer &amp; ChipShouter[cite: 2]</li>
-                    <li>Executed password bypass attacks and memory dumping via side-channel analysis timing triggers[cite: 2]</li>
-                    <li>Developed automated Python parametric scan notebooks and target reset management scripts[cite: 2]</li>
-                </ul>
+                    <div class="timeline-card">
+                        <span class="badge badge-work">FULL-TIME</span>
+                        <div class="card-title">Cyber Security Analyst</div>
+                        <div class="card-subtitle">ESF Labs Limited</div>
+                        <div class="card-meta">Hyderabad, India • Feb 2021 – Dec 2024</div>
+                        <ul class="card-bullets">
+                            <li>Digital forensics investigations, incident triage, and malware analysis</li>
+                            <li>Endpoint security management and threat mitigation strategies</li>
+                            <li>Represented lab at international events (e.g., 7th INTERPOL Digital Forensics Expert Meeting)</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
 
         </div>
