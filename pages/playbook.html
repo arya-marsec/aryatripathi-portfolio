@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Resources | Arya Tripathi</title>
     
-    <!-- Favicon -->
+    <!-- Tab Favicon -->
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="shortcut icon" href="../favicon.ico">
 
@@ -29,7 +29,7 @@
             flex-direction: column; 
         }
         
-        /* Navigation */
+        /* Navigation with Inline Cyber Anchor SVG Logo */
         nav { 
             display: flex; 
             justify-content: space-between; 
@@ -37,7 +37,22 @@
             padding: 1.5rem 8%; 
             background: var(--dark-bg);
         }
-        .logo { font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-svg {
+            width: 28px;
+            height: 28px;
+        }
+        .logo-text { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            letter-spacing: 1px; 
+        }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
         nav a:hover, nav a.active { color: var(--primary); }
@@ -53,7 +68,7 @@
         .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
         .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 
-        /* Filter Controls */
+        /* Controls Row */
         .controls-row {
             display: flex;
             justify-content: space-between;
@@ -66,7 +81,7 @@
             background: rgba(15, 23, 50, 0.8);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 6px;
-            padding: 0.6rem 1rem;
+            padding: 0.65rem 1rem;
             color: #fff;
             font-size: 0.88rem;
             width: 280px;
@@ -104,7 +119,7 @@
             gap: 2rem;
         }
 
-        /* Article Cards Grid */
+        /* Article Cards */
         .articles-grid {
             display: flex;
             flex-direction: column;
@@ -152,7 +167,7 @@
         }
         .tags { color: #8e99b0; }
 
-        /* Sidebar */
+        /* Sidebar Widgets */
         .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
         .sidebar-widget {
             background: var(--card-bg);
@@ -161,9 +176,11 @@
             padding: 1.2rem;
         }
         .widget-title {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(0, 212, 255, 0.1);
@@ -175,8 +192,30 @@
             margin-bottom: 0.6rem;
             cursor: pointer;
             transition: color 0.2s;
+            display: flex;
+            justify-content: space-between;
         }
         .sidebar-list li:hover { color: #fff; }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag-item {
+            font-size: 0.75rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: #8e99b0;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tag-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
 
         footer { 
             text-align: center; 
@@ -194,7 +233,25 @@
 </head>
 <body>
     <nav>
-        <a href="../index.html" class="logo">ARYA TRIPATHI</a>
+        <a href="../index.html" class="logo-container">
+            <svg class="nav-logo-svg" viewBox="0 0 100 100">
+                <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="#0a0e27" stroke="#00d4ff" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="50" cy="5" r="3" fill="#00ff88"/>
+                <circle cx="90" cy="27.5" r="3" fill="#00ff88"/>
+                <circle cx="90" cy="72.5" r="3" fill="#00ff88"/>
+                <circle cx="50" cy="95" r="3" fill="#00ff88"/>
+                <circle cx="10" cy="72.5" r="3" fill="#00ff88"/>
+                <circle cx="10" cy="27.5" r="3" fill="#00ff88"/>
+                <circle cx="50" cy="24" r="5" fill="none" stroke="#00d4ff" stroke-width="3"/>
+                <line x1="50" y1="29" x2="50" y2="72" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="38" x2="62" y2="38" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 28,58 C 28,78 72,78 72,58" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <polygon points="28,52 23,60 33,60" fill="#00ff88"/>
+                <polygon points="72,52 67,60 77,60" fill="#00ff88"/>
+                <circle cx="50" cy="50" r="4" fill="#00ff88"/>
+            </svg>
+            <span class="logo-text">ARYA TRIPATHI</span>
+        </a>
         <ul>
             <li><a href="../index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
@@ -210,7 +267,7 @@
         <h1 class="page-title">Research &amp; Insights</h1>
         <p class="page-desc">Technical articles, research findings, and practical guides</p>
 
-        <!-- Search & Category Filters -->
+        <!-- Search & Filter Controls -->
         <div class="controls-row">
             <input type="text" id="searchInput" class="search-input" placeholder="Search articles..." onkeyup="filterArticles()">
             
@@ -228,7 +285,7 @@
             <!-- Article Cards Grid -->
             <div class="articles-grid" id="articlesGrid">
                 
-                <article class="article-card" data-category="DFIR">
+                <article class="article-card" data-category="DFIR" data-tags="Volatility OT Security">
                     <div class="article-meta-top">
                         <span class="badge badge-dfir">DFIR</span>
                         <span class="read-time">8 min read</span>
@@ -237,12 +294,12 @@
                     <p class="article-excerpt">Step-by-step artifact extraction and Volatility framework workflows tailored for compromised industrial control systems and embedded shipboard gateways.</p>
                     <div class="article-meta-bottom">
                         <span>Aug 15, 2026</span>
-                        <span>•</span>
+                        <span>&bull;</span>
                         <span class="tags">#Volatility #OT Security</span>
                     </div>
                 </article>
 
-                <article class="article-card" data-category="OT">
+                <article class="article-card" data-category="OT" data-tags="Maritime NMEA">
                     <div class="article-meta-top">
                         <span class="badge badge-ot">OT</span>
                         <span class="read-time">12 min read</span>
@@ -251,7 +308,7 @@
                     <p class="article-excerpt">Technical breakdown of unencrypted marine navigation protocols, spoofing mechanisms, and detection heuristics for vessel bridge networks.</p>
                     <div class="article-meta-bottom">
                         <span>Jul 28, 2026</span>
-                        <span>•</span>
+                        <span>&bull;</span>
                         <span class="tags">#Maritime #NMEA</span>
                     </div>
                 </article>
@@ -260,19 +317,44 @@
 
             <!-- Sidebar -->
             <aside class="sidebar">
+                <!-- Browse by Category -->
                 <div class="sidebar-widget">
-                    <h3 class="widget-title">Categories</h3>
+                    <h3 class="widget-title">Browse by Category</h3>
                     <ul class="sidebar-list">
-                        <li onclick="filterCategory('DFIR')">DFIR (1)</li>
-                        <li onclick="filterCategory('OT')">OT / ICS (1)</li>
+                        <li onclick="filterCategory('DFIR')"><span>DFIR</span> <span>(1)</span></li>
+                        <li onclick="filterCategory('OT')"><span>OT / ICS</span> <span>(1)</span></li>
+                        <li onclick="filterCategory('Endpoint')"><span>Endpoint</span> <span>(0)</span></li>
+                        <li onclick="filterCategory('Hardware')"><span>Hardware</span> <span>(0)</span></li>
+                        <li onclick="filterCategory('Threat Intel')"><span>Threat Intel</span> <span>(0)</span></li>
                     </ul>
                 </div>
 
+                <!-- Browse by Tag -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Browse by Tag</h3>
+                    <div class="tag-cloud">
+                        <span class="tag-item" onclick="filterTag('Volatility')">#Volatility</span>
+                        <span class="tag-item" onclick="filterTag('OT Security')">#OT Security</span>
+                        <span class="tag-item" onclick="filterTag('Maritime')">#Maritime</span>
+                        <span class="tag-item" onclick="filterTag('NMEA')">#NMEA</span>
+                    </div>
+                </div>
+
+                <!-- Latest Articles -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Latest Articles</h3>
                     <ul class="sidebar-list">
                         <li>OT Memory Forensics Guide</li>
                         <li>NMEA 0183 &amp; AIS Threat Matrix</li>
+                    </ul>
+                </div>
+
+                <!-- Most Read -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Most Read</h3>
+                    <ul class="sidebar-list">
+                        <li>NMEA 0183 &amp; AIS Threat Matrix</li>
+                        <li>OT Memory Forensics Guide</li>
                     </ul>
                 </div>
             </aside>
@@ -285,13 +367,28 @@
 
     <script>
         let selectedCategory = 'All';
+        let selectedTag = '';
 
         function filterCategory(category, element) {
             selectedCategory = category;
-            if (element) {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                element.classList.add('active');
-            }
+            selectedTag = '';
+            
+            // Highlight matching filter button if clicked from sidebar
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.trim() === category) {
+                    btn.classList.add('active');
+                }
+            });
+            if (category === 'All' && element) element.classList.add('active');
+
+            filterArticles();
+        }
+
+        function filterTag(tag) {
+            selectedTag = tag;
+            selectedCategory = 'All';
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             filterArticles();
         }
 
@@ -301,13 +398,15 @@
 
             cards.forEach(card => {
                 const category = card.getAttribute('data-category');
+                const tags = card.getAttribute('data-tags') || '';
                 const title = card.querySelector('.article-title').innerText.toLowerCase();
                 const excerpt = card.querySelector('.article-excerpt').innerText.toLowerCase();
                 
                 const matchesCategory = selectedCategory === 'All' || category === selectedCategory;
+                const matchesTag = selectedTag === '' || tags.includes(selectedTag);
                 const matchesSearch = title.includes(searchQuery) || excerpt.includes(searchQuery);
 
-                if (matchesCategory && matchesSearch) {
+                if (matchesCategory && matchesTag && matchesSearch) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
