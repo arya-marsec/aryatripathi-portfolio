@@ -51,9 +51,7 @@
             height: 28px;
             transition: transform 0.3s ease;
         }
-        .logo:hover .cyber-anchor-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
+        .logo:hover .cyber-anchor-icon { transform: scale(1.1) rotate(5deg); }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a {
             color: var(--text-light);
@@ -65,6 +63,7 @@
         }
         nav a:hover, nav a.active { color: var(--primary); }
         nav a.highlight-link { color: var(--accent); font-weight: 600; }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; flex: 1; width: 100%; }
         .page-header { margin-bottom: 3rem; }
         .status-badge {
@@ -83,7 +82,8 @@
         }
         .page-header h1 { font-size: 3rem; color: #ffffff; margin-bottom: 0.8rem; }
         .page-header p { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; }
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(0, 212, 255, 0.15);
@@ -91,13 +91,35 @@
             padding: 2rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        .card h2 { font-size: 1.35rem; color: var(--primary); margin-bottom: 1rem; }
-        .contact-info { list-style: none; margin-top: 1rem; }
-        .contact-info li { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); }
-        .contact-info strong { display: block; color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.2rem; }
-        .contact-info a { color: var(--primary); text-decoration: none; }
+        .card h2 { font-size: 1.35rem; color: var(--primary); margin-bottom: 1.2rem; }
+        
+        .contact-info { list-style: none; }
+        .contact-info li { margin-bottom: 1.2rem; }
+        .contact-info strong { display: block; color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.2rem; letter-spacing: 0.5px; }
+        .contact-info a { color: var(--primary); text-decoration: none; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--accent); }
+        .contact-info p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            background: var(--primary);
+            color: #0a0e27;
+        }
+
         .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; letter-spacing: 0.5px; }
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 0.8rem;
@@ -106,7 +128,31 @@
             border-radius: 6px;
             color: var(--text-light);
             font-family: inherit;
+            font-size: 0.95rem;
         }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--primary);
+            color: #0a0e27;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
         footer {
             background: rgba(10, 14, 39, 0.95);
             padding: 2rem 5%;
@@ -114,6 +160,10 @@
             color: var(--text-muted);
             font-size: 0.88rem;
             border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        @media (max-width: 800px) {
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -166,28 +216,45 @@
                     </li>
                     <li>
                         <strong>Location</strong>
-                        Paris, France
+                        <p>Villejuif / Paris Metropolitan Area, France</p>
+                    </li>
+                    <li>
+                        <strong>Professional Profiles</strong>
+                        <div class="social-links">
+                            <a href="https://linkedin.com" target="_blank" class="social-btn">LinkedIn</a>
+                            <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
+                        </div>
                     </li>
                 </ul>
             </div>
+
             <div class="card">
                 <h2>Send Message</h2>
                 <form>
                     <div class="form-group">
                         <label>Your Name</label>
-                        <input type="text" placeholder="e.g., Jane Doe">
+                        <input type="text" placeholder="e.g., Jane Doe" required>
                     </div>
                     <div class="form-group">
                         <label>Your Email</label>
-                        <input type="email" placeholder="e.g., jane@company.com">
+                        <input type="email" placeholder="e.g., jane@company.com" required>
                     </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" placeholder="e.g., Research Collaboration / Job Opportunity">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message →</button>
                 </form>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
+        <p>&copy; Arya Tripathi &bull; Maritime &amp; OT Cybersecurity Specialist</p>
     </footer>
 
 </body>
