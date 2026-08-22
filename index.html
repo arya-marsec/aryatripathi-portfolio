@@ -3,96 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arya Tripathi | Maritime & OT Cybersecurity Specialist</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #00d4ff;
-            --secondary: #1e3a5f;
-            --accent: #00ff88;
-            --dark-bg: #0a0e27;
-            --card-bg: #111736;
-            --text-light: #e0e0e0;
-            --text-muted: #9aa0b5;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0e27;
-            color: var(--text-light);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 5%;
-            background: rgba(10, 14, 39, 0.95);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; }
-        nav a:hover, nav a.active { color: var(--primary); }
+    <title>Arya Tripathi | Maritime &amp; OT Cybersecurity Specialist</title>
 
-        .hero-container {
-            max-width: 1100px;
-            margin: 4rem auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 3rem;
-            align-items: center;
-            flex: 1;
-        }
-        .status-tag {
-            display: inline-block;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            color: var(--accent);
-            font-size: 0.75rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-        .hero-text h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 1rem; color: #fff; }
-        .hero-text h1 span { color: var(--primary); }
-        .hero-text p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7; }
-
-        .cta-buttons { display: flex; gap: 1rem; }
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .btn-primary { background: var(--primary); color: #0a0e27; }
-        .btn-primary:hover { background: #00b3d6; }
-        .btn-outline { border: 1px solid rgba(0, 212, 255, 0.4); color: var(--text-light); }
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
-
-        .profile-wrapper { display: flex; justify-content: center; }
-        .profile-img {
-            width: 100%;
-            max-width: 360px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        }
-
-        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(0,212,255,0.1); }
-    </style>
+    <!-- Shared Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav>
         <a href="index.html" class="logo">ARYA TRIPATHI</a>
-        <ul>
+
+        <!-- Hamburger toggle button for mobile -->
+        <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+
+        <ul id="nav-menu">
             <li><a href="index.html" class="active">HOME</a></li>
             <li><a href="pages/about.html">ABOUT</a></li>
             <li><a href="pages/services.html">TECHNICAL FOCUS</a></li>
@@ -121,5 +44,8 @@
     <footer>
         <p>&copy; Arya Tripathi &bull; Maritime &amp; OT Cybersecurity Specialist</p>
     </footer>
+
+    <!-- Shared JavaScript for Mobile Navigation -->
+    <script src="js/main.js"></script>
 </body>
 </html>
