@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Arya Tripathi - Maritime & OT Cybersecurity</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
             --primary-dark: #0099cc;
@@ -21,7 +16,6 @@
             --text-light: #e0e0e0;
             --text-muted: #9aa0b5;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
@@ -31,8 +25,6 @@
             display: flex;
             flex-direction: column;
         }
-
-        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -45,27 +37,24 @@
             top: 0;
             z-index: 100;
         }
-
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.65rem;
+            text-decoration: none;
         }
-
-        .logo::before {
-            content: "◆";
-            color: var(--accent);
+        .cyber-anchor-icon {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease;
         }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
+        .logo:hover .cyber-anchor-icon {
+            transform: scale(1.1) rotate(5deg);
         }
-
+        nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a {
             color: var(--text-light);
             text-decoration: none;
@@ -74,30 +63,10 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
         }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--primary);
-        }
-
-        nav a.highlight-link {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Container Layout */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 5%;
-            flex: 1;
-            width: 100%;
-        }
-
-        .page-header {
-            margin-bottom: 3rem;
-        }
-
+        nav a:hover, nav a.active { color: var(--primary); }
+        nav a.highlight-link { color: var(--accent); font-weight: 600; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; flex: 1; width: 100%; }
+        .page-header { margin-bottom: 3rem; }
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -112,139 +81,32 @@
             margin-bottom: 1.2rem;
             letter-spacing: 1px;
         }
-
-        .page-header h1 {
-            font-size: 3rem;
-            color: #ffffff;
-            margin-bottom: 0.8rem;
-        }
-
-        .page-header p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 750px;
-        }
-
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-
+        .page-header h1 { font-size: 3rem; color: #ffffff; margin-bottom: 0.8rem; }
+        .page-header p { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(0, 212, 255, 0.15);
             border-radius: 12px;
-            padding: 2.5rem;
+            padding: 2rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-
-        .card h2 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.8rem;
-        }
-
-        .contact-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
-        }
-
-        .contact-value {
-            font-size: 1.05rem;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        .contact-value a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        .profile-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group input,
-        .form-group textarea {
+        .card h2 { font-size: 1.35rem; color: var(--primary); margin-bottom: 1rem; }
+        .contact-info { list-style: none; margin-top: 1rem; }
+        .contact-info li { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); }
+        .contact-info strong { display: block; color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.2rem; }
+        .contact-info a { color: var(--primary); text-decoration: none; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .form-group input, .form-group textarea {
             width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(10, 14, 39, 0.6);
+            padding: 0.8rem;
+            background: rgba(10, 14, 39, 0.8);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 6px;
-            color: #ffffff;
+            color: var(--text-light);
             font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.8rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #0a0e27;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
         footer {
             background: rgba(10, 14, 39, 0.95);
             padding: 2rem 5%;
@@ -253,26 +115,37 @@
             font-size: 0.88rem;
             border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
-
-        @media (max-width: 800px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Arya Tripathi</div>
+        <a href="../index.html" class="logo">
+            <svg class="cyber-anchor-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" stroke="var(--accent)" stroke-width="2" fill="rgba(0, 255, 136, 0.05)" />
+                <circle cx="16" cy="2" r="1.5" fill="var(--primary)" />
+                <circle cx="29" cy="9.5" r="1.5" fill="var(--primary)" />
+                <circle cx="29" cy="24.5" r="1.5" fill="var(--primary)" />
+                <circle cx="16" cy="32" r="1.5" fill="var(--primary)" />
+                <circle cx="3" cy="24.5" r="1.5" fill="var(--primary)" />
+                <circle cx="3" cy="9.5" r="1.5" fill="var(--primary)" />
+                <circle cx="16" cy="8" r="2" stroke="var(--primary)" stroke-width="1.8" />
+                <line x1="16" y1="10" x2="16" y2="23" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" />
+                <line x1="11" y1="13" x2="21" y2="13" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M 9,19 C 9,25 23,25 23,19" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" fill="none" />
+                <path d="M 8,18 L 9,20 L 11,19" fill="var(--accent)" />
+                <path d="M 24,18 L 23,20 L 21,19" fill="var(--accent)" />
+            </svg>
+            Arya Tripathi
+        </a>
         <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="playbook.html" class="highlight-link">Marsec Playbooks</a></li>
-            <li><a href="journey.html">Journey</a></li>
-            <li><a href="certifications.html">Certs</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">TECHNICAL FOCUS</a></li>
+            <li><a href="playbook.html" class="highlight-link">TECHNICAL RESOURCES</a></li>
+            <li><a href="journey.html">JOURNEY</a></li>
+            <li><a href="certifications.html">CERTS</a></li>
+            <li><a href="contact.html" class="active">CONTACT</a></li>
         </ul>
     </nav>
 
@@ -283,68 +156,31 @@
             <p>Interested in discussing Maritime OT cybersecurity research, incident response, digital forensics, or potential career opportunities? Reach out directly using the options below.</p>
         </div>
 
-        <div class="contact-grid">
-            <!-- Direct Contact Info -->
+        <div class="grid">
             <div class="card">
                 <h2>Direct Channels</h2>
-                
-                <div class="contact-item">
-                    <div class="contact-label">Email Address</div>
-                    <div class="contact-value">
-                        <a href="mailto:contact.aryatripathi@gmail.com?subject=Opportunity%20Inquiry%20-%20Maritime%20OT%20Cybersecurity">
-                            contact.aryatripathi@gmail.com
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">Location</div>
-                    <div class="contact-value">Paris, France</div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">Profiles</div>
-                    <div class="contact-value profile-links">
-                        <div>
-                            <a href="https://www.linkedin.com/in/arya-tripathi" target="_blank" rel="noopener">
-                                LinkedIn Profile ↗
-                            </a>
-                        </div>
-                        <div>
-                            <a href="https://github.com/arya-marsec" target="_blank" rel="noopener">
-                                GitHub Profile ↗
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <a href="mailto:contact.aryatripathi@gmail.com?subject=Opportunity%20Inquiry%20-%20Maritime%20OT%20Cybersecurity" class="btn btn-primary">
-                        <span>✉</span> Send Email: contact.aryatripathi@gmail.com
-                    </a>
-                </div>
+                <ul class="contact-info">
+                    <li>
+                        <strong>Email Address</strong>
+                        <a href="mailto:contact.aryatripathi@gmail.com">contact.aryatripathi@gmail.com</a>
+                    </li>
+                    <li>
+                        <strong>Location</strong>
+                        Paris, France
+                    </li>
+                </ul>
             </div>
-
-            <!-- Quick Email Form -->
             <div class="card">
                 <h2>Send Message</h2>
-                <form action="mailto:contact.aryatripathi@gmail.com" method="post" enctype="text/plain">
+                <form>
                     <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="Name" placeholder="e.g., Jane Doe" required>
+                        <label>Your Name</label>
+                        <input type="text" placeholder="e.g., Jane Doe">
                     </div>
-
                     <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="Email" placeholder="e.g., jane@company.com" required>
+                        <label>Your Email</label>
+                        <input type="email" placeholder="e.g., jane@company.com">
                     </div>
-
-                    <div class="form-group">
-                        <label for="message">Message / Hiring Inquiry</label>
-                        <textarea id="message" name="Message" rows="5" placeholder="Details regarding potential roles, research collaboration, or career inquiries..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>

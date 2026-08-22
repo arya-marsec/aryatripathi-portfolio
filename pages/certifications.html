@@ -3,203 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications | Arya Tripathi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Certifications | Arya Tripathi - Maritime & OT Cybersecurity</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg-dark: #0b0d19;
-            --card-bg: #13172b;
-            --accent-purple: #6366f1;
-            --accent-cyan: #06b6d4;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --secondary: #1e3a5f;
+            --accent: #00ff88;
+            --dark-bg: #0a0e27;
+            --card-bg: #1a1f3a;
+            --text-light: #e0e0e0;
+            --text-muted: #9aa0b5;
         }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
-            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
+            color: var(--text-light);
+            line-height: 1.6;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-
-        .navbar-custom {
-            background: rgba(19, 23, 43, 0.75);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
-        .nav-link {
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.3s;
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
         }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-cyan);
+        .cyber-anchor-icon {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease;
         }
-
-        .card-custom {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 24px;
+        .logo:hover .cyber-anchor-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        nav ul { display: flex; list-style: none; gap: 1.8rem; }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
-            height: 100%;
         }
-
-        .card-custom:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #818cf8, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge-custom {
-            background: rgba(99, 102, 241, 0.15);
-            color: #a5b4fc;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+        nav a:hover, nav a.active { color: var(--primary); }
+        nav a.highlight-link { color: var(--accent); font-weight: 600; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; flex: 1; width: 100%; }
+        .page-header { margin-bottom: 3rem; }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--primary);
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            padding: 4px 12px;
-            font-size: 0.78rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
         }
-
-        .tag-tech {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid rgba(6, 182, 212, 0.25);
-            border-radius: 6px;
-            padding: 4px 8px;
+        .page-header h1 { font-size: 3rem; color: #ffffff; margin-bottom: 0.8rem; }
+        .page-header p { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .card-tag {
+            font-family: monospace;
             font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
             display: inline-block;
+            margin-bottom: 1rem;
         }
-
-        .cert-icon {
-            font-size: 1.5rem;
-            color: var(--accent-cyan);
-            margin-bottom: 12px;
+        .card h2 { font-size: 1.35rem; color: #ffffff; margin-bottom: 0.4rem; }
+        .card h3 { font-size: 0.9rem; color: var(--primary); margin-bottom: 0.8rem; font-weight: 500; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); }
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2" href="../index.html">
-                <span style="color: var(--accent-cyan);">&#128737;</span> Arya Tripathi
-            </a>
-            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-2 me-4">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="journey.html">Journey</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="certifications.html">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link text-info fw-semibold" href="playbook.html">Marsec Playbooks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        <a href="../index.html" class="logo">
+            <svg class="cyber-anchor-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" stroke="var(--accent)" stroke-width="2" fill="rgba(0, 255, 136, 0.05)" />
+                <circle cx="16" cy="2" r="1.5" fill="var(--primary)" />
+                <circle cx="29" cy="9.5" r="1.5" fill="var(--primary)" />
+                <circle cx="29" cy="24.5" r="1.5" fill="var(--primary)" />
+                <circle cx="16" cy="32" r="1.5" fill="var(--primary)" />
+                <circle cx="3" cy="24.5" r="1.5" fill="var(--primary)" />
+                <circle cx="3" cy="9.5" r="1.5" fill="var(--primary)" />
+                <circle cx="16" cy="8" r="2" stroke="var(--primary)" stroke-width="1.8" />
+                <line x1="16" y1="10" x2="16" y2="23" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" />
+                <line x1="11" y1="13" x2="21" y2="13" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M 9,19 C 9,25 23,25 23,19" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" fill="none" />
+                <path d="M 8,18 L 9,20 L 11,19" fill="var(--accent)" />
+                <path d="M 24,18 L 23,20 L 21,19" fill="var(--accent)" />
+            </svg>
+            Arya Tripathi
+        </a>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">TECHNICAL FOCUS</a></li>
+            <li><a href="playbook.html" class="highlight-link">TECHNICAL RESOURCES</a></li>
+            <li><a href="journey.html">JOURNEY</a></li>
+            <li><a href="certifications.html" class="active">CERTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
     </nav>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="mb-5 text-center text-lg-start">
-                <span class="badge-custom mb-2 d-inline-block">Qualifications & Accreditations</span>
-                <h1 class="fw-bold text-white">Certifications</h1>
-                <p class="text-secondary col-lg-8" style="color: var(--text-muted) !important;">
-                    Verified professional certifications covering incident response, industrial control systems, network security, and vulnerability assessment.
-                </p>
+    <div class="container">
+        <div class="page-header">
+            <div class="status-badge">QUALIFICATIONS & ACCREDITATIONS</div>
+            <h1>Certifications</h1>
+            <p>Verified professional certifications covering incident response, industrial control systems, network security, and vulnerability assessment.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="card-tag">Endpoint & IR</span>
+                <h2>SIREN</h2>
+                <h3>SentinelOne Incident Response Engineer</h3>
+                <p>Specialized engineering certification in SentinelOne EDR deployment, threat triage, and incident response orchestration.</p>
             </div>
-
-            <div class="row g-4">
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="card-custom">
-                        <div class="cert-icon">&#128737;</div>
-                        <span class="badge-custom mb-2 d-inline-block">Endpoint & IR</span>
-                        <h3 class="h5 text-white fw-bold mb-2">SIREN</h3>
-                        <p class="text-gradient fw-semibold small mb-2">SentinelOne Incident Response Engineer</p>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Specialized engineering certification in SentinelOne EDR deployment, threat triage, and incident response orchestration.
-                        </p>
-                        <span class="tag-tech">EDR & IR</span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card-custom">
-                        <div class="cert-icon">&#127760;</div>
-                        <span class="badge-custom mb-2 d-inline-block">ICS / OT Security</span>
-                        <h3 class="h5 text-white fw-bold mb-2">210W-06 ICS Cybersecurity Threats</h3>
-                        <p class="text-gradient fw-semibold small mb-2">CISA (Cybersecurity & Infrastructure Security Agency)</p>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Industrial control systems threat modeling, OT network defense, and critical infrastructure risk management.
-                        </p>
-                        <span class="tag-tech">Industrial Security</span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card-custom">
-                        <div class="cert-icon">&#128274;</div>
-                        <span class="badge-custom mb-2 d-inline-block">Network Defense</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Certified Network Security Specialist</h3>
-                        <p class="text-gradient fw-semibold small mb-2">CNSS</p>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Core network defense architecture, protocol security, packet inspection, and perimeter defense configurations.
-                        </p>
-                        <span class="tag-tech">Network Security</span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card-custom">
-                        <div class="cert-icon">&#128030;</div>
-                        <span class="badge-custom mb-2 d-inline-block">Offensive Security</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Ethical Hacking: Vulnerability Analysis</h3>
-                        <p class="text-gradient fw-semibold small mb-2">Vulnerability Assessment & Assessment</p>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Hands-on vulnerability identification, exploitation vectors, threat triage, and security auditing methodologies.
-                        </p>
-                        <span class="tag-tech">Vulnerability Analysis</span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card-custom">
-                        <div class="cert-icon">&#9881;</div>
-                        <span class="badge-custom mb-2 d-inline-block">Agile Framework</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Agile Methodology - Scrum</h3>
-                        <p class="text-gradient fw-semibold small mb-2">Scrum & Operations</p>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Agile project management frameworks, iterative engineering cycles, sprint planning, and team collaboration.
-                        </p>
-                        <span class="tag-tech">Agile Scrum</span>
-                    </div>
-                </div>
-
+            <div class="card">
+                <span class="card-tag">ICS / OT Security</span>
+                <h2>210W-06 ICS Cybersecurity Threats</h2>
+                <h3>CISA (Cybersecurity & Infrastructure Security Agency)</h3>
+                <p>Industrial control systems threat modeling, OT network defense, and critical infrastructure risk management.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Network Defense</span>
+                <h2>Certified Network Security Specialist</h2>
+                <h3>CNSS</h3>
+                <p>Core network defense architecture, protocol security, packet inspection, and perimeter defense configurations.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="py-4 text-center border-top border-secondary border-opacity-10 mt-5">
-        <p class="small text-secondary mb-0" style="color: var(--text-muted) !important;">
-            &copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist
-        </p>
+    <footer>
+        <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
