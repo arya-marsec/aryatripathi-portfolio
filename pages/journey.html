@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
-            --primary-dark: #0099cc;
             --secondary: #1e3a5f;
             --accent: #00ff88;
             --dark-bg: #0a0e27;
@@ -51,9 +50,7 @@
             height: 28px;
             transition: transform 0.3s ease;
         }
-        .logo:hover .cyber-anchor-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
+        .logo:hover .cyber-anchor-icon { transform: scale(1.1) rotate(5deg); }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a {
             color: var(--text-light);
@@ -65,8 +62,9 @@
         }
         nav a:hover, nav a.active { color: var(--primary); }
         nav a.highlight-link { color: var(--accent); font-weight: 600; }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; flex: 1; width: 100%; }
-        .page-header { margin-bottom: 3rem; }
+        .page-header { margin-bottom: 2.5rem; }
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -83,23 +81,64 @@
         }
         .page-header h1 { font-size: 3rem; color: #ffffff; margin-bottom: 0.8rem; }
         .page-header p { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; }
-        .timeline { position: relative; border-left: 2px solid rgba(0, 212, 255, 0.3); padding-left: 2rem; margin-left: 1rem; }
-        .timeline-item { position: relative; margin-bottom: 2.5rem; }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.55rem;
-            top: 0.3rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
+        
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+            padding-bottom: 1rem;
         }
-        .timeline-date { font-family: monospace; color: var(--accent); font-size: 0.85rem; margin-bottom: 0.3rem; }
-        .timeline-title { font-size: 1.25rem; color: #ffffff; }
-        .timeline-sub { color: var(--primary); font-size: 0.95rem; margin-bottom: 0.8rem; }
-        .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Card Section Layout */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .journey-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .card-type {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .journey-card h2 { font-size: 1.3rem; color: #ffffff; margin-bottom: 0.3rem; }
+        .journey-card h3 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.8rem; font-weight: 500; }
+        .journey-card .date { font-family: monospace; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; display: block; }
+        .journey-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .journey-card ul { list-style: disc inside; color: var(--text-muted); font-size: 0.9rem; }
+        .journey-card ul li { margin-bottom: 0.4rem; }
+
         footer {
             background: rgba(10, 14, 39, 0.95);
             padding: 2rem 5%;
@@ -144,29 +183,49 @@
 
     <div class="container">
         <div class="page-header">
-            <div class="status-badge">CAREER & RESEARCH TIMELINE</div>
+            <div class="status-badge">CAREER &amp; RESEARCH HISTORY</div>
             <h1>Professional Journey</h1>
-            <p>Milestones across academic research, maritime cybersecurity projects, and technical forensics operations.</p>
+            <p>Academic milestones, maritime cybersecurity research, and operational engineering background.</p>
         </div>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">2025 - PRESENT</div>
-                <div class="timeline-title">Master's Candidate in Cybersecurity & IoT Trust</div>
-                <div class="timeline-sub">ESILV Graduate School of Engineering (Paris, France)</div>
-                <div class="timeline-desc">Focusing on embedded hardware security, OT critical infrastructure defense, network protocol resilience, and trust models for connected environments.</div>
+        <div class="filter-tabs">
+            <button class="tab-btn active">All</button>
+            <button class="tab-btn">Education</button>
+            <button class="tab-btn">Research &amp; Experience</button>
+            <button class="tab-btn">Projects</button>
+        </div>
+
+        <div class="journey-grid">
+            <div class="journey-card">
+                <span class="card-type">Education</span>
+                <h2>Master's Degree (M2)</h2>
+                <h3>ESILV Graduate School of Engineering</h3>
+                <span class="date">Paris, France • 2025 – Present</span>
+                <p>Specialization in Cybersecurity &amp; IoT Trust.</p>
+                <ul>
+                    <li>Embedded systems &amp; hardware security</li>
+                    <li>OT / Critical Infrastructure protection</li>
+                    <li>Cryptography &amp; trust architectures</li>
+                </ul>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2024 - 2025</div>
-                <div class="timeline-title">Maritime Cybersecurity Researcher</div>
-                <div class="timeline-sub">ENSM (École Nationale Supérieure Maritime)</div>
-                <div class="timeline-desc">Researched navigational protocol vulnerability vectors, bridge simulator threat modeling, and maritime OT incident scenarios.</div>
+
+            <div class="journey-card">
+                <span class="card-type">Research Internship</span>
+                <h2>Maritime Cybersecurity Researcher</h2>
+                <h3>École Nationale Supérieure Maritime (ENSM)</h3>
+                <span class="date">France • 4 Months</span>
+                <p>Focused on maritime navigation protocol vulnerabilities and shipboard bridge systems security.</p>
+                <ul>
+                    <li>NMEA 0183 &amp; AIS packet analysis</li>
+                    <li>Bridge simulator threat modeling</li>
+                    <li>OT memory forensics workflows</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
+        <p>&copy; Arya Tripathi &bull; Maritime &amp; OT Cybersecurity Specialist</p>
     </footer>
 
 </body>
