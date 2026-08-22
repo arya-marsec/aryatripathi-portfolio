@@ -130,6 +130,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         .card {
@@ -167,13 +168,58 @@
         .card p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .key-areas-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .key-areas-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .key-areas-list li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-areas-list li::before {
+            content: "▹";
+            color: var(--accent);
+        }
+
+        /* Additional Domains Section */
+        .additional-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .additional-section h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
 
         .tech-tag {
@@ -181,9 +227,9 @@
             border: 1px solid rgba(0, 212, 255, 0.2);
             color: var(--primary);
             font-family: monospace;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
         }
 
         footer {
@@ -213,59 +259,77 @@
 
     <div class="container">
         <div class="page-header">
-            <div class="status-badge">CORE COMPETENCIES & LAB WORK</div>
+            <div class="status-badge">CORE COMPETENCIES</div>
             <h1>Technical Focus & Research</h1>
-            <p>Hands-on technical methodologies, research domains, and practical security engineering applied to Maritime Operational Technology (OT), Bridge Navigation, and IoT systems.</p>
+            <p>Core competencies and hands-on research domains. Practical expertise in DFIR, endpoint security, OT defense, and threat intelligence.</p>
         </div>
 
         <div class="grid">
             <!-- Card 1 -->
             <div class="card">
-                <span class="card-tag">Offensive Security</span>
-                <h2>Hands-on Penetration Testing</h2>
-                <p>Simulating vector attacks against operational environments, network perimeters, and specialized hardware. Executing controlled offensive security tests within isolated lab environments to identify vulnerabilities.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Kali Linux</span>
-                    <span class="tech-tag">Penetration Testing</span>
-                    <span class="tech-tag">Network Auditing</span>
-                </div>
+                <span class="card-tag">DFIR</span>
+                <h2>Digital Forensics & Incident Response</h2>
+                <p>Investigating system artifacts, analyzing volatile memory, and performing forensics to trace attack vectors across operational technology and IT environments.</p>
+                <div class="key-areas-title">Key Areas:</div>
+                <ul class="key-areas-list">
+                    <li>Volatility Memory Analysis</li>
+                    <li>KAPE Forensic Collection</li>
+                    <li>Artifact Analysis</li>
+                    <li>Malware Triage</li>
+                </ul>
             </div>
 
             <!-- Card 2 -->
             <div class="card">
-                <span class="card-tag">Hardware & Wireless</span>
-                <h2>Hardware & Sub-GHz Hacking</h2>
-                <p>Analyzing physical hardware interfaces, IoT sensors, and sub-GHz wireless signals within maritime infrastructure to test signal integrity and system resilience.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Flipper Zero</span>
-                    <span class="tech-tag">Wi-Fi Marauder</span>
-                    <span class="tech-tag">Sub-GHz RF</span>
-                    <span class="tech-tag">IoT Hardware</span>
-                </div>
+                <span class="card-tag">ENDPOINT SECURITY</span>
+                <h2>Endpoint Threat Detection & Hunting</h2>
+                <p>SentinelOne EDR operations and proactive threat hunting. Detection tuning, behavioral analysis, and rapid incident response across enterprise endpoints.</p>
+                <div class="key-areas-title">Key Areas:</div>
+                <ul class="key-areas-list">
+                    <li>SentinelOne EDR (SIREN Certified)</li>
+                    <li>Threat Hunting</li>
+                    <li>Detection Tuning</li>
+                    <li>MITRE ATT&CK Mapping</li>
+                </ul>
             </div>
 
             <!-- Card 3 -->
             <div class="card">
-                <span class="card-tag">DFIR</span>
-                <h2>Digital Forensics & Incident Response</h2>
-                <p>Investigating system artifacts, analyzing volatile memory dumps, and performing forensics to trace attack vectors across operational technology and maritime IT environments.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Volatility Framework</span>
-                    <span class="tech-tag">Memory Forensics</span>
-                    <span class="tech-tag">Artifact Analysis</span>
-                </div>
+                <span class="card-tag">OPERATIONAL TECHNOLOGY</span>
+                <h2>OT Security & Critical Infrastructure</h2>
+                <p>Understanding and assessing the unique security challenges of industrial and critical infrastructure systems. Standards compliance and threat modeling for safety-critical operations.</p>
+                <div class="key-areas-title">Key Areas:</div>
+                <ul class="key-areas-list">
+                    <li>IMO 2021 & IACS Standards</li>
+                    <li>ICS/SCADA Security</li>
+                    <li>OT Threat Modeling</li>
+                    <li>Compliance Assessment</li>
+                </ul>
             </div>
 
             <!-- Card 4 -->
             <div class="card">
-                <span class="card-tag">Simulation & Modeling</span>
-                <h2>Bridge Navigation & OT Security</h2>
-                <p>Modeling threat scenarios against electronic navigation systems, simulated bridge controls, and marine telemetry interfaces to evaluate operational reliability under compromise.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">OpenCPN</span>
-                    <span class="tech-tag">Bridge Command</span>
-                    <span class="tech-tag">NMEA Feeds</span>
-                </div>
+                <span class="card-tag">HARDWARE & EMBEDDED</span>
+                <h2>Hardware Security & IoT</h2>
+                <p>Firmware analysis, hardware-level vulnerability research, and embedded systems security. Hands-on testing with specialized tools and methodologies.</p>
+                <div class="key-areas-title">Key Areas:</div>
+                <ul class="key-areas-list">
+                    <li>Flipper Zero Testing</li>
+                    <li>Firmware Analysis</li>
+                    <li>Embedded Systems</li>
+                    <li>Hardware Vulnerabilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Domains -->
+        <div class="additional-section">
+            <h3>Additional Focus Areas</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">Cyber Security Awareness</span>
+                <span class="tech-tag">Tabletop Exercises (TTX)</span>
+                <span class="tech-tag">Threat Research</span>
+                <span class="tech-tag">OSINT</span>
             </div>
         </div>
     </div>
