@@ -1,160 +1,493 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marsec Playbooks | Arya Tripathi</title>
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Research & Insights | Arya Tripathi - Maritime & OT Cybersecurity</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --bg-dark: #0b0d19;
-            --card-bg: #13172b;
-            --accent-purple: #6366f1;
-            --accent-cyan: #06b6d4;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --secondary: #1e3a5f;
+            --accent: #00ff88;
+            --dark-bg: #0a0e27;
+            --card-bg: #1a1f3a;
+            --text-light: #e0e0e0;
+            --text-muted: #9aa0b5;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 40%);
-            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
+            color: var(--text-light);
+            line-height: 1.6;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .navbar-custom {
-            background: rgba(19, 23, 43, 0.75);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .nav-link {
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.3s;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-cyan);
+        .logo::before {
+            content: "◆";
+            color: var(--accent);
         }
 
-        .card-custom {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 28px;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
-        .card-custom:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-2px);
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
         }
 
-        .badge-custom {
-            background: rgba(99, 102, 241, 0.15);
-            color: #a5b4fc;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+        nav a.highlight-link {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            flex: 1;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        /* Filter & Search Controls */
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--text-light);
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            padding: 6px 14px;
             font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .tag-tech {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid rgba(6, 182, 212, 0.25);
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: #0a0e27;
+            font-weight: 600;
+        }
+
+        .search-box input {
+            padding: 0.5rem 1rem;
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 0.8rem;
-            display: inline-block;
+            color: #ffffff;
+            font-size: 0.9rem;
+            width: 240px;
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #818cf8, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Main Content Grid + Sidebar Layout */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2.5rem;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            align-content: start;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .category-badge {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        .read-time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .article-card h2 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .date-published {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--primary);
+            background: rgba(10, 14, 39, 0.6);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            margin-bottom: 0.6rem;
+        }
+
+        .widget-list a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .widget-list a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2" href="../index.html">
-                <span style="color: var(--accent-cyan);">&#128737;</span> Arya Tripathi
-            </a>
-            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-2 me-4">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="journey.html">Journey</a></li>
-                    <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link active text-info fw-semibold" href="playbook.html">Marsec Playbooks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        <div class="logo">Arya Tripathi</div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Technical Focus</a></li>
+            <li><a href="playbook.html" class="highlight-link">Marsec Playbooks</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="certifications.html">Certs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Main Content -->
-    <section class="py-5">
-        <div class="container">
-            <div class="mb-5">
-                <span class="badge-custom mb-2 d-inline-block">Research & Reference</span>
-                <h1 class="fw-bold text-white">Marsec Technical Playbooks</h1>
-                <p class="text-secondary col-lg-8" style="color: var(--text-muted) !important;">
-                    Tactical guides, protocol analysis sheets, and assessment playbooks covering vessel bridge vectors, GNSS spoofing, and embedded hardware security.
-                </p>
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1>Research & Insights</h1>
+            <p>Technical articles, research findings, and practical guides on Maritime OT defense, digital forensics, and hardware vulnerability analysis.</p>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="controls-bar">
+            <div class="filter-buttons">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">DFIR</button>
+                <button class="filter-btn">OT</button>
+                <button class="filter-btn">Endpoint</button>
+                <button class="filter-btn">Hardware</button>
+                <button class="filter-btn">Threat Intel</button>
             </div>
-
-            <div class="row g-4">
-                <!-- Playbook 1 -->
-                <div class="col-md-6">
-                    <div class="card-custom h-100">
-                        <span class="badge-custom mb-3 d-inline-block">Protocol Security</span>
-                        <h3 class="h5 text-white fw-bold mb-2">NMEA Telemetry & ECDIS Feed Analysis</h3>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            A breakdown of NMEA 0183/2000 sentence structure manipulation, checksum validation gaps, and defensive measures for bridge navigation feeds.
-                        </p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="tag-tech">OpenCPN</span>
-                            <span class="tag-tech">NMEA Protocols</span>
-                            <span class="tag-tech">Bridge Command</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Playbook 2 -->
-                <div class="col-md-6">
-                    <div class="card-custom h-100">
-                        <span class="badge-custom mb-3 d-inline-block">Forensics & Incident Response</span>
-                        <h3 class="h5 text-white fw-bold mb-2">Shipboard Memory Forensics with Volatility</h3>
-                        <p class="small text-secondary mb-3" style="color: var(--text-muted) !important;">
-                            Step-by-step procedures for acquiring RAM images from Linux-based vessel OT gateways and analyzing malware artifacts using Volatility 3.
-                        </p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="tag-tech">Volatility</span>
-                            <span class="tag-tech">DFIR</span>
-                            <span class="tag-tech">Linux OT</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search articles...">
             </div>
         </div>
-    </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Main Content & Sidebar -->
+        <div class="content-layout">
+            <!-- Grid of Articles -->
+            <div class="articles-grid">
+                
+                <!-- Article Card 1 -->
+                <article class="article-card">
+                    <div>
+                        <div class="card-meta">
+                            <span class="category-badge">DFIR</span>
+                            <span class="read-time">8 min read</span>
+                        </div>
+                        <h2>Volatile Memory Analysis on Vessel Control Networks</h2>
+                        <p>A step-by-step walkthrough using Volatility 3 to extract malicious artifacts from compromised bridge systems.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date-published">Published: Aug 2026</span>
+                        <div class="article-tags">
+                            <span class="tag">#Volatility</span>
+                            <span class="tag">#MemoryForensics</span>
+                            <span class="tag">#Maritime</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="article-card">
+                    <div>
+                        <div class="card-meta">
+                            <span class="category-badge">OT</span>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                        <h2>Evaluating IACS UR E26/E27 Compliance in Modern Shipbuilding</h2>
+                        <p>Analyzing the practical cyber resilience implications of new unified requirements for vessel navigation and automation.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date-published">Published: Jul 2026</span>
+                        <div class="article-tags">
+                            <span class="tag">#URE26</span>
+                            <span class="tag">#IMO</span>
+                            <span class="tag">#OTSecurity</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="article-card">
+                    <div>
+                        <div class="card-meta">
+                            <span class="category-badge">Endpoint</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <h2>SentinelOne EDR Detection Tuning for Industrial IT/OT Gateways</h2>
+                        <p>Optimizing behavioral detection models on edge devices without impacting mission-critical telemetry feeds.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date-published">Published: Jun 2026</span>
+                        <div class="article-tags">
+                            <span class="tag">#SentinelOne</span>
+                            <span class="tag">#EDR</span>
+                            <span class="tag">#ThreatHunting</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 4 -->
+                <article class="article-card">
+                    <div>
+                        <div class="card-meta">
+                            <span class="category-badge">Hardware</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <h2>Sub-GHz Signal Analysis of Maritime Wireless Telemetry</h2>
+                        <p>Hands-on testing and vulnerability assessment of isolated sensor networks using Flipper Zero and SDR tools.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date-published">Published: May 2026</span>
+                        <div class="article-tags">
+                            <span class="tag">#FlipperZero</span>
+                            <span class="tag">#RF</span>
+                            <span class="tag">#IoT</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                
+                <div class="sidebar-widget">
+                    <h3>Browse by Category</h3>
+                    <ul class="widget-list">
+                        <li><a href="#">DFIR & Forensics (4)</a></li>
+                        <li><a href="#">OT & Critical Infra (6)</a></li>
+                        <li><a href="#">Endpoint & EDR (3)</a></li>
+                        <li><a href="#">Hardware & IoT (5)</a></li>
+                        <li><a href="#">Threat Intel & Research (4)</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Latest Articles</h3>
+                    <ul class="widget-list">
+                        <li><a href="#">Volatile Memory Analysis on Vessel Control Networks</a></li>
+                        <li><a href="#">Evaluating IACS UR E26/E27 Compliance</a></li>
+                        <li><a href="#">SentinelOne EDR Detection Tuning</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Most Read</h3>
+                    <ul class="widget-list">
+                        <li><a href="#">Sub-GHz Signal Analysis of Maritime Wireless Telemetry</a></li>
+                        <li><a href="#">NMEA 0183 Protocol Vulnerability Breakdown</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Browse by Tag</h3>
+                    <div class="article-tags" style="margin-top: 0.5rem;">
+                        <span class="tag">#Volatility</span>
+                        <span class="tag">#Maritime</span>
+                        <span class="tag">#IMO2021</span>
+                        <span class="tag">#EDR</span>
+                        <span class="tag">#FlipperZero</span>
+                        <span class="tag">#NMEA</span>
+                        <span class="tag">#SCADA</span>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
+    </footer>
+
 </body>
 </html>
