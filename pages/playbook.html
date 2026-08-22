@@ -29,7 +29,7 @@
             flex-direction: column; 
         }
         
-        /* Navigation with Inline Cyber Anchor SVG Logo */
+        /* Navigation */
         nav { 
             display: flex; 
             justify-content: space-between; 
@@ -43,16 +43,8 @@
             gap: 10px;
             text-decoration: none;
         }
-        .nav-logo-svg {
-            width: 28px;
-            height: 28px;
-        }
-        .logo-text { 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            color: var(--primary); 
-            letter-spacing: 1px; 
-        }
+        .nav-logo-svg { width: 28px; height: 28px; }
+        .logo-text { font-size: 1.1rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
         nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
         nav a:hover, nav a.active { color: var(--primary); }
@@ -84,7 +76,7 @@
             padding: 0.65rem 1rem;
             color: #fff;
             font-size: 0.88rem;
-            width: 280px;
+            width: 300px;
             outline: none;
             transition: border-color 0.2s;
         }
@@ -119,34 +111,41 @@
             gap: 2rem;
         }
 
-        /* Article Cards */
-        .articles-grid {
+        /* Categorized Resource Sections */
+        .resources-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 2rem;
         }
-        .article-card {
+
+        .category-group {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 8px;
             padding: 1.5rem;
-            transition: border-color 0.2s;
         }
-        .article-card:hover { border-color: rgba(0, 212, 255, 0.4); }
-        
-        .article-meta-top {
+
+        .category-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
         }
+
+        .category-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
         .badge {
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 0.2rem 0.6rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         .badge-dfir { background: rgba(0, 255, 136, 0.15); color: #00ff88; }
         .badge-ot { background: rgba(0, 212, 255, 0.15); color: #00d4ff; }
@@ -154,18 +153,65 @@
         .badge-hardware { background: rgba(189, 147, 249, 0.15); color: #bd93f9; }
         .badge-intel { background: rgba(255, 85, 85, 0.15); color: #ff5555; }
 
-        .read-time { font-size: 0.78rem; color: var(--text-muted); }
-        .article-title { font-size: 1.25rem; color: #00d4ff; margin-bottom: 0.6rem; cursor: pointer; }
-        .article-title:hover { text-decoration: underline; }
-        .article-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; }
-        
-        .article-meta-bottom {
-            font-size: 0.78rem;
-            color: #616e88;
+        .category-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Resource Items List */
+        .resource-list {
             display: flex;
+            flex-direction: column;
             gap: 0.8rem;
         }
-        .tags { color: #8e99b0; }
+
+        .resource-item {
+            background: rgba(8, 12, 36, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.08);
+            border-radius: 6px;
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .resource-item:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(15, 23, 50, 0.8);
+        }
+
+        .resource-info { flex: 1; }
+
+        .resource-title {
+            font-size: 0.98rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        .resource-title:hover { text-decoration: underline; }
+
+        .resource-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .resource-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.3rem;
+            min-width: 110px;
+        }
+
+        .read-time { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
+        .pub-date { font-size: 0.72rem; color: #616e88; }
 
         /* Sidebar Widgets */
         .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -228,6 +274,8 @@
 
         @media (max-width: 850px) {
             .content-layout { grid-template-columns: 1fr; }
+            .resource-item { flex-direction: column; align-items: flex-start; }
+            .resource-meta { align-items: flex-start; }
         }
     </style>
 </head>
@@ -269,7 +317,7 @@
 
         <!-- Search & Filter Controls -->
         <div class="controls-row">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search articles..." onkeyup="filterArticles()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search resources..." onkeyup="filterArticles()">
             
             <div class="filter-group">
                 <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
@@ -282,42 +330,57 @@
         </div>
 
         <div class="content-layout">
-            <!-- Article Cards Grid -->
-            <div class="articles-grid" id="articlesGrid">
+            <!-- Categorized Resource Modules -->
+            <div class="resources-wrapper">
                 
-                <article class="article-card" data-category="DFIR" data-tags="Volatility OT Security">
-                    <div class="article-meta-top">
-                        <span class="badge badge-dfir">DFIR</span>
-                        <span class="read-time">8 min read</span>
+                <!-- DFIR Category Group -->
+                <div class="category-group" data-category-group="DFIR">
+                    <div class="category-header">
+                        <div class="category-title-wrap">
+                            <span class="badge badge-dfir">DFIR</span>
+                            <span class="category-name">Digital Forensics &amp; Incident Response</span>
+                        </div>
                     </div>
-                    <h2 class="article-title">OT Memory Forensics Guide</h2>
-                    <p class="article-excerpt">Step-by-step artifact extraction and Volatility framework workflows tailored for compromised industrial control systems and embedded shipboard gateways.</p>
-                    <div class="article-meta-bottom">
-                        <span>Aug 15, 2026</span>
-                        <span>&bull;</span>
-                        <span class="tags">#Volatility #OT Security</span>
+                    <div class="resource-list">
+                        <div class="resource-item" data-category="DFIR" data-tags="Volatility OT Security">
+                            <div class="resource-info">
+                                <a href="#" class="resource-title">OT Memory Forensics Guide</a>
+                                <p class="resource-desc">Step-by-step artifact extraction and Volatility framework workflows tailored for compromised industrial control systems and embedded shipboard gateways.</p>
+                            </div>
+                            <div class="resource-meta">
+                                <span class="read-time">8 min read</span>
+                                <span class="pub-date">Aug 15, 2026</span>
+                            </div>
+                        </div>
                     </div>
-                </article>
+                </div>
 
-                <article class="article-card" data-category="OT" data-tags="Maritime NMEA">
-                    <div class="article-meta-top">
-                        <span class="badge badge-ot">OT</span>
-                        <span class="read-time">12 min read</span>
+                <!-- OT Category Group -->
+                <div class="category-group" data-category-group="OT">
+                    <div class="category-header">
+                        <div class="category-title-wrap">
+                            <span class="badge badge-ot">OT</span>
+                            <span class="category-name">Operational Technology &amp; Maritime</span>
+                        </div>
                     </div>
-                    <h2 class="article-title">NMEA 0183 &amp; AIS Threat Matrix</h2>
-                    <p class="article-excerpt">Technical breakdown of unencrypted marine navigation protocols, spoofing mechanisms, and detection heuristics for vessel bridge networks.</p>
-                    <div class="article-meta-bottom">
-                        <span>Jul 28, 2026</span>
-                        <span>&bull;</span>
-                        <span class="tags">#Maritime #NMEA</span>
+                    <div class="resource-list">
+                        <div class="resource-item" data-category="OT" data-tags="Maritime NMEA">
+                            <div class="resource-info">
+                                <a href="#" class="resource-title">NMEA 0183 &amp; AIS Threat Matrix</a>
+                                <p class="resource-desc">Technical breakdown of unencrypted marine navigation protocols, spoofing mechanisms, and detection heuristics for vessel bridge networks.</p>
+                            </div>
+                            <div class="resource-meta">
+                                <span class="read-time">12 min read</span>
+                                <span class="pub-date">Jul 28, 2026</span>
+                            </div>
+                        </div>
                     </div>
-                </article>
+                </div>
 
             </div>
 
             <!-- Sidebar -->
             <aside class="sidebar">
-                <!-- Browse by Category -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Browse by Category</h3>
                     <ul class="sidebar-list">
@@ -329,7 +392,6 @@
                     </ul>
                 </div>
 
-                <!-- Browse by Tag -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Browse by Tag</h3>
                     <div class="tag-cloud">
@@ -340,7 +402,6 @@
                     </div>
                 </div>
 
-                <!-- Latest Articles -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Latest Articles</h3>
                     <ul class="sidebar-list">
@@ -349,7 +410,6 @@
                     </ul>
                 </div>
 
-                <!-- Most Read -->
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Most Read</h3>
                     <ul class="sidebar-list">
@@ -373,7 +433,6 @@
             selectedCategory = category;
             selectedTag = '';
             
-            // Highlight matching filter button if clicked from sidebar
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.innerText.trim() === category) {
@@ -394,22 +453,35 @@
 
         function filterArticles() {
             const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.article-card');
+            const categoryGroups = document.querySelectorAll('.category-group');
 
-            cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                const tags = card.getAttribute('data-tags') || '';
-                const title = card.querySelector('.article-title').innerText.toLowerCase();
-                const excerpt = card.querySelector('.article-excerpt').innerText.toLowerCase();
-                
-                const matchesCategory = selectedCategory === 'All' || category === selectedCategory;
-                const matchesTag = selectedTag === '' || tags.includes(selectedTag);
-                const matchesSearch = title.includes(searchQuery) || excerpt.includes(searchQuery);
+            categoryGroups.forEach(group => {
+                const groupCategory = group.getAttribute('data-category-group');
+                const items = group.querySelectorAll('.resource-item');
+                let visibleCount = 0;
 
-                if (matchesCategory && matchesTag && matchesSearch) {
-                    card.style.display = 'block';
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const tags = item.getAttribute('data-tags') || '';
+                    const title = item.querySelector('.resource-title').innerText.toLowerCase();
+                    const desc = item.querySelector('.resource-desc').innerText.toLowerCase();
+                    
+                    const matchesCategory = selectedCategory === 'All' || category === selectedCategory;
+                    const matchesTag = selectedTag === '' || tags.includes(selectedTag);
+                    const matchesSearch = title.includes(searchQuery) || desc.includes(searchQuery);
+
+                    if (matchesCategory && matchesTag && matchesSearch) {
+                        item.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount > 0) {
+                    group.style.display = 'block';
                 } else {
-                    card.style.display = 'none';
+                    group.style.display = 'none';
                 }
             });
         }
