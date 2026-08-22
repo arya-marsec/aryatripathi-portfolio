@@ -3,64 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journey | Arya Tripathi</title>
+    <title>Professional Journey | Arya Tripathi</title>
+    
+    <!-- Tab Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
             --accent: #00ff88;
-            --dark-bg: #0a0e27;
-            --card-bg: #111736;
+            --dark-bg: #080c24;
+            --card-bg: rgba(15, 23, 50, 0.6);
+            --card-border: rgba(0, 212, 255, 0.12);
             --text-light: #e0e0e0;
-            --text-muted: #9aa0b5;
+            --text-muted: #8e99b0;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark-bg); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: space-between; padding: 1.2rem 5%; border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark-bg); 
+            color: var(--text-light); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        /* Navigation */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1.5rem 8%; 
+            background: var(--dark-bg);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-svg { width: 32px; height: 32px; }
+        .logo-text { font-size: 1.1rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 1.8rem; }
+        nav a { color: #a0aabf; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
         nav a:hover, nav a.active { color: var(--primary); }
 
-        .container { max-width: 1100px; margin: 3rem auto; padding: 0 5%; flex: 1; width: 100%; }
-        .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
-        .page-desc { color: var(--text-muted); margin-bottom: 2rem; }
-
-        .tabs { display: flex; gap: 0.8rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .tab-btn {
-            background: rgba(17, 23, 54, 0.8);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            color: var(--text-muted);
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            transition: all 0.3s;
+        /* Container & Header */
+        .container { 
+            max-width: 1100px; 
+            margin: 2.5rem auto; 
+            padding: 0 5%; 
+            flex: 1; 
+            width: 100%; 
         }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: #0a0e27; border-color: var(--primary); font-weight: 600; }
+        .page-title { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
+        .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 
-        .journey-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        /* Journey Grid */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
         .journey-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.15);
+            border: 1px solid var(--card-border);
             border-radius: 8px;
-            padding: 1.5rem;
-            transition: opacity 0.3s, transform 0.3s;
+            padding: 1.8rem;
+            transition: border-color 0.2s, transform 0.2s;
         }
-        .journey-card.hidden { display: none; }
-        .card-type { display: inline-block; font-size: 0.7rem; color: var(--accent); background: rgba(0, 255, 136, 0.1); padding: 0.2rem 0.5rem; border-radius: 4px; margin-bottom: 0.8rem; }
-        .card-title { font-size: 1.2rem; color: #fff; margin-bottom: 0.3rem; }
-        .card-org { font-size: 0.9rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .card-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
-        .card-list { list-style: disc inside; font-size: 0.88rem; color: var(--text-muted); }
-        .card-list li { margin-bottom: 0.4rem; }
 
-        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(0,212,255,0.1); }
+        .journey-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .badge-edu { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
+        .badge-intern { background: rgba(0, 212, 255, 0.12); color: #00d4ff; }
+        .badge-proj { background: rgba(189, 147, 249, 0.12); color: #bd93f9; }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .card-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .card-bullets li {
+            font-size: 0.88rem;
+            color: #c4cedf;
+            line-height: 1.4;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .card-bullets li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            color: #616e88; 
+            font-size: 0.8rem; 
+            background: var(--dark-bg);
+            margin-top: 3rem;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="../index.html" class="logo">ARYA TRIPATHI</a>
+        <a href="../index.html" class="logo-container">
+            <svg class="nav-logo-svg" viewBox="0 0 100 100">
+                <polygon points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5" fill="none" stroke="#00ff88" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="50" cy="5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="27.5" r="4" fill="#00d4ff"/>
+                <circle cx="89" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="50" cy="95" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="72.5" r="4" fill="#00d4ff"/>
+                <circle cx="11" cy="27.5" r="4" fill="#00d4ff"/>
+                <circle cx="50" cy="30" r="5" fill="none" stroke="#00d4ff" stroke-width="3.5"/>
+                <line x1="50" y1="35" x2="50" y2="70" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="44" x2="62" y2="44" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 30,58 C 30,76 70,76 70,58" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">ARYA TRIPATHI</span>
+        </a>
         <ul>
             <li><a href="../index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
@@ -76,70 +180,52 @@
         <h1 class="page-title">Professional Journey</h1>
         <p class="page-desc">Academic milestones, maritime cybersecurity research, and operational engineering background.</p>
 
-        <div class="tabs">
-            <button class="tab-btn active" onclick="filterJourney('all')">ALL</button>
-            <button class="tab-btn" onclick="filterJourney('education')">EDUCATION</button>
-            <button class="tab-btn" onclick="filterJourney('experience')">RESEARCH &amp; EXPERIENCE</button>
-            <button class="tab-btn" onclick="filterJourney('projects')">PROJECTS</button>
-        </div>
-
         <div class="journey-grid">
-            <div class="journey-card" data-category="education">
-                <span class="card-type">EDUCATION</span>
-                <h2 class="card-title">Master's Degree (M2)</h2>
-                <div class="card-org">ESILV Graduate School of Engineering</div>
-                <div class="card-date">Paris, France &bull; 2025 - Present</div>
-                <ul class="card-list">
+            
+            <!-- Education Entry -->
+            <div class="journey-card">
+                <span class="badge badge-edu">EDUCATION</span>
+                <div class="card-title">Master's Degree (M2)</div>
+                <div class="card-subtitle">ESILV Graduate School of Engineering</div>
+                <div class="card-meta">Paris, France • 2025 – Present</div>
+                <ul class="card-bullets">
                     <li>Specialization in Cybersecurity &amp; IoT Trust</li>
                     <li>Embedded systems &amp; hardware security</li>
                     <li>OT / Critical Infrastructure protection</li>
                 </ul>
             </div>
 
-            <div class="journey-card" data-category="experience">
-                <span class="card-type">RESEARCH INTERNSHIP</span>
-                <h2 class="card-title">Maritime Cybersecurity Researcher</h2>
-                <div class="card-org">&Eacute;cole Nationale Sup&eacute;rieure Maritime (ENSM)</div>
-                <div class="card-date">France &bull; 4 Months</div>
-                <ul class="card-list">
+            <!-- ENSM Internship Entry -->
+            <div class="journey-card">
+                <span class="badge badge-intern">INTERNSHIP</span>
+                <div class="card-title">Maritime Cybersecurity Intern</div>
+                <div class="card-subtitle">École Nationale Supérieure Maritime (ENSM)</div>
+                <div class="card-meta">Nantes, France • Apr 2026 – Aug 2026</div>
+                <ul class="card-bullets">
                     <li>NMEA 0183 &amp; AIS packet analysis</li>
                     <li>Bridge simulator threat modeling</li>
                     <li>OT memory forensics workflows</li>
                 </ul>
             </div>
 
-            <div class="journey-card" data-category="projects">
-                <span class="card-type">PROJECT</span>
-                <h2 class="card-title">Shipboard OT Honeypot Framework</h2>
-                <div class="card-org">Independent Research</div>
-                <div class="card-date">2026</div>
-                <ul class="card-list">
-                    <li>Simulated marine serial telemetry telemetry streams</li>
-                    <li>Mapped anomaly signatures for bridged networks</li>
+            <!-- M1 Academic Project Entry -->
+            <div class="journey-card">
+                <span class="badge badge-proj">ACADEMIC PROJECT</span>
+                <div class="card-title">Hardware Fault Injection Setup</div>
+                <div class="card-subtitle">ESILV LabCyber Project (Team 436)</div>
+                <div class="card-meta">Paris, France • M1 Academic Project</div>
+                <ul class="card-bullets">
+                    <li>Implemented Clock Glitching, Voltage Glitching, and EMFI using ChipWhisperer &amp; ChipShouter[cite: 2]</li>
+                    <li>Executed password bypass attacks and memory dumping via side-channel analysis timing triggers[cite: 2]</li>
+                    <li>Developed automated Python parametric scan notebooks and target reset management scripts[cite: 2]</li>
                 </ul>
             </div>
+
         </div>
     </div>
 
     <footer>
         <p>&copy; Arya Tripathi &bull; Maritime &amp; OT Cybersecurity Specialist</p>
     </footer>
-
-    <script>
-        function filterJourney(category) {
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            const cards = document.querySelectorAll('.journey-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
