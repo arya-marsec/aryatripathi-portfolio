@@ -151,7 +151,6 @@
         }
         .badge-edu { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
         .badge-intern { background: rgba(0, 212, 255, 0.12); color: #00d4ff; }
-        .badge-proj { background: rgba(189, 147, 249, 0.12); color: #bd93f9; }
         .badge-work { background: rgba(255, 184, 108, 0.12); color: #ffb86c; }
 
         .card-title {
@@ -195,6 +194,35 @@
             font-weight: bold;
             position: absolute;
             left: 0;
+        }
+
+        /* Sub-project block within Education */
+        .sub-project {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(0, 212, 255, 0.18);
+        }
+
+        .sub-project-header {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .sub-project-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+
+        .sub-project-text {
+            font-size: 0.85rem;
+            color: #c4cedf;
+            line-height: 1.4;
         }
 
         footer { 
@@ -258,32 +286,27 @@
                     
                     <div class="timeline-card">
                         <span class="badge badge-edu">MASTER'S DEGREE</span>
-                        <div class="card-title">M.S. in Cybersecurity &amp; IoT Trust</div>
-                        <div class="card-subtitle">ESILV Graduate School of Engineering</div>
-                        <div class="card-meta">Paris, France • 2025 – Present</div>
+                        <div class="card-title">M. Eng. in Cybersecurity &amp; IoT Trust</div>
+                        <div class="card-subtitle">Ecole Supérieure d'Ingénieurs Léonard de Vinci (ESILV)</div>
+                        <div class="card-meta">Paris, France • Sep 2025 – Aug 2027</div>
                         <ul class="card-bullets">
                             <li>Specialization in Embedded Hardware Security &amp; IoT Systems</li>
                             <li>OT / Critical Infrastructure protection methodologies</li>
                         </ul>
-                    </div>
 
-                    <div class="timeline-card">
-                        <span class="badge badge-proj">M1 ACADEMIC PROJECT</span>
-                        <div class="card-title">Hardware Fault Injection Setup</div>
-                        <div class="card-subtitle">ESILV LabCyber (Team 436)</div>
-                        <div class="card-meta">Paris, France • M1 Academic Project</div>
-                        <ul class="card-bullets">
-                            <li>Implemented Clock Glitching, Voltage Glitching, and EMFI using ChipWhisperer &amp; ChipShouter[cite: 2]</li>
-                            <li>Executed password bypass attacks and memory dumping via side-channel analysis timing triggers[cite: 2]</li>
-                            <li>Developed automated Python parametric scan notebooks and target reset management scripts[cite: 2]</li>
-                        </ul>
+                        <!-- Sub-categorized M1 Academic Project -->
+                        <div class="sub-project">
+                            <div class="sub-project-header">M1 Academic Project</div>
+                            <div class="sub-project-title">Hardware Fault Injection Setup on Embedded Targets</div>
+                            <p class="sub-project-text">Contributed to this research project to perform hardware fault injection attacks (Clock Glitching, Voltage Glitching, and EMFI) using ChipWhisperer and ChipShouter platforms.</p>
+                        </div>
                     </div>
 
                     <div class="timeline-card">
                         <span class="badge badge-edu">POSTGRADUATE DIPLOMA</span>
-                        <div class="card-title">PG Diploma in Cyber Security &amp; Forensics</div>
-                        <div class="card-subtitle">Rashtriya Raksha University</div>
-                        <div class="card-meta">Gujarat, India • 2019 – 2020</div>
+                        <div class="card-title">PG Diploma in Cyber Security &amp; Cyber Forensics</div>
+                        <div class="card-subtitle">Raksha Shakti University</div>
+                        <div class="card-meta">Gujarat, India • Jul 2019 – Jul 2020</div>
                         <ul class="card-bullets">
                             <li>Digital forensics investigations, memory analysis, and cyber law</li>
                         </ul>
@@ -303,9 +326,23 @@
                         <div class="card-subtitle">École Nationale Supérieure Maritime (ENSM)</div>
                         <div class="card-meta">Nantes, France • Apr 2026 – Aug 2026</div>
                         <ul class="card-bullets">
-                            <li>NMEA 0183 &amp; AIS packet analysis on shipboard telemetry</li>
-                            <li>Bridge simulator threat modeling &amp; vulnerability assessment</li>
-                            <li>OT memory forensics workflows for maritime control systems</li>
+                            <li>Designed cyber-attack scenarios targeting seafarers and marine officers, including maritime-themed phishing, for use in officer training programs.</li>
+                            <li>Tested navigation-system attacks — including GPS/GNSS jamming and spoofing on the SOMOS physical bridge command simulator to assess impact on navigational safety.</li>
+                            <li>Explored hardware-based attack vectors against bridge and navigation equipment using Flipper Zero and extended hardware tooling.</li>
+                            <li>Authored a state-of-the-art research report documenting scenario design and findings for future project researchers.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="badge badge-work">GOVERNMENT CONSULTANT</span>
+                        <div class="card-title">Senior Consultant - Cyber Security Cell</div>
+                        <div class="card-subtitle">Ministry of Civil Aviation, Government of India</div>
+                        <div class="card-meta">New Delhi, India • Feb 2025 – Sep 2025</div>
+                        <ul class="card-bullets">
+                            <li>Conducted cyber threat monitoring and analysis for the national civil aviation sector, a critical transport infrastructure domain closely paralleling maritime OT risk.</li>
+                            <li>Produced intelligence reports and shared actionable insights with government and industry partners.</li>
+                            <li>Assessed threat actor activity, attack vectors, and sector-specific risks across transport-sector systems.</li>
+                            <li>Supported incident response readiness through intelligence-driven recommendations.</li>
                         </ul>
                     </div>
 
@@ -315,9 +352,22 @@
                         <div class="card-subtitle">ESF Labs Limited</div>
                         <div class="card-meta">Hyderabad, India • Feb 2021 – Dec 2024</div>
                         <ul class="card-bullets">
-                            <li>Digital forensics investigations, incident triage, and malware analysis</li>
-                            <li>Endpoint security management and threat mitigation strategies</li>
-                            <li>Represented lab at international events (e.g., 7th INTERPOL Digital Forensics Expert Meeting)</li>
+                            <li>Led digital forensics investigations using tools such as KAPE, producing evidence reports and incident analyses.</li>
+                            <li>Deployed and managed SentinelOne EDR, detecting threats, responding to incidents, and recommending mitigations.</li>
+                            <li>Performed malware triage and behavioral analysis to support threat investigations.</li>
+                            <li>Mapped adversary techniques to MITRE ATT&amp;CK for reporting and detection improvements.</li>
+                            <li>Produced threat landscape reports, developed SOPs, and organized cybersecurity awareness programs for government clients.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="badge badge-intern">INTERNSHIP</span>
+                        <div class="card-title">Forensic Support Intern</div>
+                        <div class="card-subtitle">Cipher Security Managed Services</div>
+                        <div class="card-meta">Remote, India • Jun 2020 – Sep 2020</div>
+                        <ul class="card-bullets">
+                            <li>Conducted Windows and email forensic investigations using tools such as OST/PST viewer, focusing on evidence extraction and analysis.</li>
+                            <li>Prepared comprehensive forensic reports for active and completed investigations, ensuring clarity, accuracy, and alignment with security standards.</li>
                         </ul>
                     </div>
 
