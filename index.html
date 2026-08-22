@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arya Tripathi - Maritime & OT Cybersecurity Specialist</title>
+    <title>Arya Tripathi | Maritime & OT Cybersecurity Specialist</title>
     <style>
         * {
             margin: 0;
@@ -20,16 +20,10 @@
             --card-bg: #1a1f3a;
             --text-light: #e0e0e0;
             --text-muted: #9aa0b5;
-            
-            /* Team Accent Colors */
-            --blue-team: #00d4ff;
-            --purple-team: #a855f7;
-            --red-team: #ff4655;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0e27;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
             color: var(--text-light);
             line-height: 1.6;
@@ -79,7 +73,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         nav a:hover,
@@ -94,15 +87,14 @@
 
         /* Hero Section */
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
-            padding: 5rem 5%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
             flex: 1;
-            width: 100%;
         }
 
         .status-badge {
@@ -128,183 +120,88 @@
             box-shadow: 0 0 8px var(--accent);
         }
 
-        .hero-content h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
             color: #ffffff;
+            margin-bottom: 1rem;
         }
 
-        .hero-content .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+        .hero-text h1 span {
+            color: var(--primary);
+            display: block;
         }
 
-        .hero-content p {
-            font-size: 1.05rem;
+        .hero-text p {
+            font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
-            line-height: 1.8;
+            max-width: 580px;
         }
 
-        .hero-buttons {
+        .hero-btns {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 1.2rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
             font-size: 0.9rem;
-            cursor: pointer;
-            border: 2px solid;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-transform: uppercase;
+            font-weight: 600;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary {
+        .primary-btn {
             background: var(--primary);
             color: #0a0e27;
-            border-color: var(--primary);
+            border: 1px solid var(--primary);
         }
 
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            border-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        .primary-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
         }
 
-        .btn-secondary {
+        .secondary-btn {
             background: transparent;
             color: var(--primary);
-            border-color: var(--primary);
+            border: 1px solid var(--primary);
         }
 
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: #0a0e27;
-            transform: translateY(-2px);
+        .secondary-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
         }
 
-        /* Hero Image Frame */
-        .hero-image {
+        /* Hero Image Container */
+        .hero-image-container {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .hero-image img {
-            width: 380px;
-            height: 380px;
-            border-radius: 20px;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.25);
+        .hero-image-frame {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 16px;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--primary), transparent, var(--accent));
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
             object-fit: cover;
         }
 
-        /* Pillars Section */
-        .pillars {
-            background: rgba(26, 31, 58, 0.5);
-            padding: 5rem 5%;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-            width: 100%;
-        }
-
-        .pillars-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .pillars h2 {
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--text-light);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .pillar {
-            background: var(--card-bg);
-            padding: 2.2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        .pillar-blue { border-top: 4px solid var(--blue-team); }
-        .pillar-purple { border-top: 4px solid var(--purple-team); }
-        .pillar-red { border-top: 4px solid var(--red-team); }
-
-        .pillar-header {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 1rem;
-        }
-
-        .pillar-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .pillar-blue .pillar-header h3 { color: var(--blue-team); }
-        .pillar-purple .pillar-header h3 { color: var(--purple-team); }
-        .pillar-red .pillar-header h3 { color: var(--red-team); }
-
-        .pillar-section {
-            margin-bottom: 1.4rem;
-        }
-
-        .pillar-section h4 {
-            font-size: 0.98rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .pillar-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .pillar-list li {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            padding: 0.25rem 0;
-            position: relative;
-            padding-left: 1.2rem;
-            line-height: 1.5;
-        }
-
-        .pillar-blue .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--blue-team); }
-        .pillar-purple .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--purple-team); }
-        .pillar-red .pillar-list li::before { content: "▸"; position: absolute; left: 0; color: var(--red-team); }
-
-        /* Footer */
         footer {
             background: rgba(10, 14, 39, 0.95);
             padding: 2rem 5%;
@@ -314,161 +211,62 @@
             border-top: 1px solid rgba(0, 212, 255, 0.1);
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 3rem 5%;
-                gap: 2rem;
+                text-align: center;
+                padding-top: 2rem;
             }
-            .pillars-grid {
-                grid-template-columns: 1fr;
+
+            .hero-text p {
+                margin: 0 auto 2rem auto;
+            }
+
+            .hero-btns {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+
+    <!-- Unified Navigation Bar -->
     <nav>
         <div class="logo">Arya Tripathi</div>
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="pages/about.html">About</a></li>
-            <li><a href="pages/services.html">Services</a></li>
-            <li><a href="pages/playbook.html" class="highlight-link">Playbook</a></li>
-            <li><a href="pages/journey.html">Journey</a></li>
-            <li><a href="pages/certifications.html">Certs</a></li>
-            <li><a href="pages/contact.html">Contact</a></li>
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="pages/about.html">ABOUT</a></li>
+            <li><a href="pages/services.html">TECHNICAL FOCUS</a></li>
+            <li><a href="pages/playbook.html" class="highlight-link">TECHNICAL RESOURCES</a></li>
+            <li><a href="pages/journey.html">JOURNEY</a></li>
+            <li><a href="pages/certifications.html">CERTS</a></li>
+            <li><a href="pages/contact.html">CONTACT</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Content -->
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-text">
             <div class="status-badge">
                 <span class="status-dot"></span> MARITIME & OT CYBERSECURITY
             </div>
-            
-            <h1>Hello, I'm <br><span class="highlight">Arya Tripathi</span></h1>
-            
-            <p>Cybersecurity Specialist with 4+ years of hands-on experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
-            
-            <div class="hero-buttons">
-                <a href="pages/playbook.html" class="btn btn-primary">MARSEC Playbook &#8594;</a>
-                <a href="pages/journey.html" class="btn btn-secondary">View Journey</a>
+            <h1>Hello, I'm <span>Arya Tripathi</span></h1>
+            <p>Cybersecurity Specialist with hands-on experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
+            <div class="hero-btns">
+                <a href="pages/playbook.html" class="btn primary-btn">TECHNICAL RESOURCES →</a>
+                <a href="pages/journey.html" class="btn secondary-btn">VIEW JOURNEY</a>
             </div>
         </div>
-
-        <div class="hero-image">
-            <img src="assets/profile.jpg" alt="Arya Tripathi" onerror="this.src='https://via.placeholder.com/380x380/1a1f3a/00d4ff?text=Arya+Tripathi'">
-        </div>
-    </section>
-
-    <!-- Core Specialization Pillars Section -->
-    <section class="pillars">
-        <div class="pillars-container">
-            <h2>Core Specialization Pillars</h2>
-            <div class="pillars-grid">
-                
-                <!-- BLUE TEAM -->
-                <div class="pillar pillar-blue">
-                    <div class="pillar-header">
-                        <span>🔵</span>
-                        <h3>BLUE TEAM – Digital Forensics & Investigation</h3>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Disk & Memory Forensics</h4>
-                        <ul class="pillar-list">
-                            <li>FTK Imager, Autopsy, OS Forensics, Volatility memory dumps</li>
-                            <li>KAPE artifact collection and Triage analysis</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Malware & Endpoint Analysis</h4>
-                        <ul class="pillar-list">
-                            <li>Triage of malicious payloads, behavioral analysis</li>
-                            <li>MITRE ATT&CK mapping, incident artifact correlation</li>
-                            <li>Email forensics (OST/PST), phishing investigation</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Critical Infrastructure Forensics</h4>
-                        <ul class="pillar-list">
-                            <li>Transport sector incident investigation (aviation, maritime)</li>
-                            <li>Cross-platform evidence collection and preservation</li>
-                            <li>Forensic reporting aligned with government standards</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- PURPLE TEAM -->
-                <div class="pillar pillar-purple">
-                    <div class="pillar-header">
-                        <span>🟣</span>
-                        <h3>PURPLE TEAM – Endpoint Detection & Threat Response</h3>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Endpoint Detection & Response</h4>
-                        <ul class="pillar-list">
-                            <li>SentinelOne EDR administration, threat triage, agent deployment</li>
-                            <li>Real-time threat detection and containment protocols</li>
-                            <li>Policy tuning, detection rule refinement, hunt operations</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Incident Response & Containment</h4>
-                        <ul class="pillar-list">
-                            <li>Rapid isolation and remediation of compromised endpoints</li>
-                            <li>Incident timeline reconstruction and root cause analysis</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Threat Hunting & ATT&CK Alignment</h4>
-                        <ul class="pillar-list">
-                            <li>Proactive threat hunting using behavioral baselines</li>
-                            <li>MITRE ATT&CK technique identification and mitigation</li>
-                            <li>Cyber Kill Chain mapping for threat intelligence reports</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- RED TEAM -->
-                <div class="pillar pillar-red">
-                    <div class="pillar-header">
-                        <span>🔴</span>
-                        <h3>RED TEAM – Maritime Security & Threat Operations</h3>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Navigation & System Attack Scenarios</h4>
-                        <ul class="pillar-list">
-                            <li>Bridge & OT attack vectors covering bridge systems, AIS, ECDIS, and OT environments</li>
-                            <li>GPS/GNSS jamming and spoofing research on physical bridge simulators</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-section">
-                        <h4>Hardware Hacking & Adversary Emulation</h4>
-                        <ul class="pillar-list">
-                            <li>Hardware exploitation, RFID/NFC, and radio frequency testing with Flipper Zero, Wi-Fi Marauder, and OpenCPN</li>
-                            <li>Adversary emulation and phishing attack scenario design for maritime crew readiness</li>
-                        </ul>
-                    </div>
-                </div>
-
+        <div class="hero-image-container">
+            <div class="hero-image-frame">
+                <img src="assets/images/profile.jpg" alt="Arya Tripathi">
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
     </footer>
+
 </body>
 </html>
