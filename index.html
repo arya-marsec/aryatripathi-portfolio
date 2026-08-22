@@ -5,293 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arya Tripathi | Maritime & OT Cybersecurity Specialist</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #00d4ff;
-            --primary-dark: #0099cc;
             --secondary: #1e3a5f;
             --accent: #00ff88;
             --dark-bg: #0a0e27;
-            --card-bg: #1a1f3a;
+            --card-bg: #111736;
             --text-light: #e0e0e0;
             --text-muted: #9aa0b5;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
+            background: #0a0e27;
             color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-
-        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
             background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--primary); }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            text-decoration: none;
-        }
-
-        .cyber-anchor-icon {
-            width: 28px;
-            height: 28px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover .cyber-anchor-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--primary);
-        }
-
-        nav a.highlight-link {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 5%;
+        .hero-container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 5%;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 3rem;
             align-items: center;
             flex: 1;
         }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            color: var(--primary);
-            font-family: monospace;
-            font-size: 0.8rem;
-            padding: 0.4rem 0.9rem;
+        .status-tag {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             letter-spacing: 1px;
         }
+        .hero-text h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 1rem; color: #fff; }
+        .hero-text h1 span { color: var(--primary); }
+        .hero-text p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7; }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent);
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text h1 span {
-            color: var(--primary);
-            display: block;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 580px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
+        .cta-buttons { display: flex; gap: 1rem; }
         .btn {
-            padding: 0.8rem 1.8rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
+        .btn-primary { background: var(--primary); color: #0a0e27; }
+        .btn-primary:hover { background: #00b3d6; }
+        .btn-outline { border: 1px solid rgba(0, 212, 255, 0.4); color: var(--text-light); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
-        .primary-btn {
-            background: var(--primary);
-            color: #0a0e27;
-            border: 1px solid var(--primary);
-        }
-
-        .primary-btn:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .secondary-btn:hover {
-            background: rgba(0, 212, 255, 0.1);
-        }
-
-        /* Hero Image Container */
-        .hero-image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image-frame {
-            position: relative;
+        .profile-wrapper { display: flex; justify-content: center; }
+        .profile-img {
             width: 100%;
-            max-width: 380px;
-            border-radius: 16px;
-            padding: 8px;
-            background: linear-gradient(135deg, var(--primary), transparent, var(--accent));
-        }
-
-        .hero-image-frame img {
-            width: 100%;
-            height: auto;
+            max-width: 360px;
             border-radius: 12px;
-            display: block;
-            object-fit: cover;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
 
-        footer {
-            background: rgba(10, 14, 39, 0.95);
-            padding: 2rem 5%;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 2rem;
-            }
-
-            .hero-text p {
-                margin: 0 auto 2rem auto;
-            }
-
-            .hero-btns {
-                justify-content: center;
-            }
-        }
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(0,212,255,0.1); }
     </style>
 </head>
 <body>
-
-    <!-- Unified Navigation Bar with Cyber-Anchor Logo -->
     <nav>
-        <a href="index.html" class="logo">
-            <svg class="cyber-anchor-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Hexagon Node Boundary -->
-                <polygon points="16,2 29,9.5 29,24.5 16,32 3,24.5 3,9.5" stroke="var(--accent)" stroke-width="2" fill="rgba(0, 255, 136, 0.05)" />
-                <circle cx="16" cy="2" r="1.5" fill="var(--primary)" />
-                <circle cx="29" cy="9.5" r="1.5" fill="var(--primary)" />
-                <circle cx="29" cy="24.5" r="1.5" fill="var(--primary)" />
-                <circle cx="16" cy="32" r="1.5" fill="var(--primary)" />
-                <circle cx="3" cy="24.5" r="1.5" fill="var(--primary)" />
-                <circle cx="3" cy="9.5" r="1.5" fill="var(--primary)" />
-                <!-- Anchor Core -->
-                <circle cx="16" cy="8" r="2" stroke="var(--primary)" stroke-width="1.8" />
-                <line x1="16" y1="10" x2="16" y2="23" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" />
-                <line x1="11" y1="13" x2="21" y2="13" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" />
-                <path d="M 9,19 C 9,25 23,25 23,19" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" fill="none" />
-                <path d="M 8,18 L 9,20 L 11,19" fill="var(--accent)" />
-                <path d="M 24,18 L 23,20 L 21,19" fill="var(--accent)" />
-            </svg>
-            Arya Tripathi
-        </a>
+        <a href="index.html" class="logo">ARYA TRIPATHI</a>
         <ul>
             <li><a href="index.html" class="active">HOME</a></li>
             <li><a href="pages/about.html">ABOUT</a></li>
             <li><a href="pages/services.html">TECHNICAL FOCUS</a></li>
-            <li><a href="pages/playbook.html" class="highlight-link">TECHNICAL RESOURCES</a></li>
+            <li><a href="pages/playbook.html">TECHNICAL RESOURCES</a></li>
             <li><a href="pages/journey.html">JOURNEY</a></li>
             <li><a href="pages/certifications.html">CERTS</a></li>
             <li><a href="pages/contact.html">CONTACT</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Content -->
-    <section class="hero">
+    <div class="hero-container">
         <div class="hero-text">
-            <div class="status-badge">
-                <span class="status-dot"></span> MARITIME & OT CYBERSECURITY
-            </div>
+            <span class="status-tag">MARITIME &amp; OT CYBERSECURITY</span>
             <h1>Hello, I'm <span>Arya Tripathi</span></h1>
-            <p>Cybersecurity Specialist with hands-on experience spanning maritime navigation security, digital forensics, endpoint threat detection, and national critical infrastructure intelligence. Master's student in Cyber Security & IoT Trust at ESILV.</p>
-            <div class="hero-btns">
-                <a href="pages/playbook.html" class="btn primary-btn">TECHNICAL RESOURCES →</a>
-                <a href="pages/journey.html" class="btn secondary-btn">VIEW JOURNEY</a>
+            <p>I am a cybersecurity practitioner specializing in Maritime and Operational Technology (OT) security. My professional focus centers on protecting critical infrastructure, vessel bridge command systems, and industrial control environments. My practice integrates digital forensics and incident response (DFIR), endpoint threat detection, and threat intelligence with a strong emphasis on regulatory compliance like IMO 2021 and IACS standards. Currently completing my Master's at ESILV in Cyber Security &amp; IoT Trust.</p>
+            <div class="cta-buttons">
+                <a href="pages/playbook.html" class="btn btn-primary">TECHNICAL RESOURCES &rarr;</a>
+                <a href="pages/journey.html" class="btn btn-outline">VIEW JOURNEY</a>
             </div>
         </div>
-        <div class="hero-image-container">
-            <div class="hero-image-frame">
-                <img src="assets/images/profile.jpg" alt="Arya Tripathi">
-            </div>
+        <div class="profile-wrapper">
+            <img src="assets/images/profile.jpg" alt="Arya Tripathi" class="profile-img">
         </div>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; Arya Tripathi &bull; Maritime & OT Cybersecurity Specialist</p>
+        <p>&copy; Arya Tripathi &bull; Maritime &amp; OT Cybersecurity Specialist</p>
     </footer>
-
 </body>
 </html>
